@@ -1,7 +1,12 @@
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import { Paper } from "@mui/material";
-import { AccountCircle, Forum, Home, LocalMall } from "@mui/icons-material";
+import {
+  AccountCircleOutlined,
+  DashboardOutlined,
+  ForumOutlined,
+  Storefront,
+} from "@mui/icons-material";
 
 export default function SimpleBottomNavigation() {
   // const [value, setValue] = React.useState(0);
@@ -9,8 +14,7 @@ export default function SimpleBottomNavigation() {
   return (
     <Paper
       sx={{ position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 100 }}
-      elevation={3}
-      className="max-w-md mx-auto"
+      className="max-w-md mx-auto border-t"
     >
       <BottomNavigation
         showLabels
@@ -18,35 +22,35 @@ export default function SimpleBottomNavigation() {
         // onChange={(evt, newValue) => {
         //   setValue(newValue);
         // }}
-        className="!h-[74px]"
+        className="!h-[72px] px-2"
       >
         <BottomNavigationAction
           // LinkComponent={NavLink}
-          className="gap-y-1.5 !justify-end !pb-2"
+          className="gap-y-1 !justify-end !pb-2.5"
           href="/dashboard"
           label="Dashboard"
-          icon={<Home className="!size-7" />}
+          icon={<DashboardOutlined className="!size-6" />}
         />
         <BottomNavigationAction
           // LinkComponent={NavLink}
-          className="gap-y-1.5 !justify-end !pb-2"
+          className="gap-y-1 !justify-end !pb-2.5"
           href="/orders"
           label="Orders"
-          icon={<LocalMall className="!size-7" />}
+          icon={<Storefront className="!size-6" />}
         />
         <BottomNavigationAction
           // LinkComponent={NavLink}
-          className="gap-y-1.5 !justify-end !pb-2"
+          className="gap-y-1 !justify-end !pb-2.5"
           href="/messages"
           label="Messages"
-          icon={<Forum className="!size-7" />}
+          icon={<ForumOutlined className="!size-6" />}
         />
         <BottomNavigationAction
           // LinkComponent={NavLink}
-          className="gap-y-1.5 !justify-end !pb-2"
+          className="gap-y-1 !justify-end !pb-2.5"
           href="/me"
           label="You"
-          icon={<AccountCircle className="!size-7" />}
+          icon={<AccountCircleOutlined className="!size-6" />}
         />
       </BottomNavigation>
     </Paper>
