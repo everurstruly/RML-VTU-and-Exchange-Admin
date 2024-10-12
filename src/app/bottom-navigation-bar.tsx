@@ -1,17 +1,7 @@
-import * as React from "react";
-import { NavLink } from "react-router-dom";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import MenuIcon from "@mui/icons-material/Menu";
 import { Paper } from "@mui/material";
-import {
-  AccountCircle,
-  AccountCircleSharp,
-  Forum,
-  Home,
-  LocalMall,
-  ShoppingBasket,
-} from "@mui/icons-material";
+import { AccountCircle, Forum, Home, LocalMall } from "@mui/icons-material";
 
 export default function SimpleBottomNavigation() {
   // const [value, setValue] = React.useState(0);

@@ -1,6 +1,5 @@
 import React from "react";
 import { Card, Avatar, CardHeader } from "@mui/material";
-import { red } from "@mui/material/colors";
 import { ArrowRight } from "@mui/icons-material";
 
 interface CurrentUserCard {

@@ -6,7 +6,7 @@ import FormControl from "@mui/material/FormControl";
 import ListItemText from "@mui/material/ListItemText";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
-import { Theme, useTheme } from "@mui/material/styles";
+// import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Chip from "@mui/material/Chip";
 
@@ -19,7 +19,7 @@ const statuses = [
 ];
 
 export default function OrderStatusSelectFilter() {
-  const theme = useTheme();
+  //   const theme = useTheme();
   const [selectedStatus, setSelectedStatus] = React.useState<string[]>([]);
 
   const handleChange = (event: SelectChangeEvent<typeof selectedStatus>) => {

@@ -1,10 +1,3 @@
-import {
-  Card,
-  CardActions,
-  CardContent,
-  Stack,
-  Typography,
-} from "@mui/material";
 import OrdersTable from "../app/orders-table";
 
 export default function OrdersPage() {

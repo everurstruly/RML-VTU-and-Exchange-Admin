@@ -1,7 +1,6 @@
-import { IconButton, InputAdornment, Stack, TextField } from "@mui/material";
-import OrdersTableStatusTabBar from "./orders-table-status-tab-bar-";
+import { IconButton, Stack } from "@mui/material";
 import OrderStatusSelectFilter from "./order-status-select-filter";
-import { FilterAlt, Search } from "@mui/icons-material";
+import { FilterAlt } from "@mui/icons-material";
 import {
   MRT_GlobalFilterTextField,
   MRT_ShowHideColumnsButton,

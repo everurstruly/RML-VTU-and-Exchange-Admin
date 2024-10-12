@@ -1,36 +1,16 @@
 import { useMemo } from "react";
 import {
-  MaterialReactTable,
-  MRT_FilterOptionMenu,
-  MRT_GlobalFilterTextField,
   MRT_ShowHideColumnsButton,
   MRT_TableContainer,
   MRT_TableHeadCellFilterContainer,
-  MRT_TablePagination,
   MRT_ToggleDensePaddingButton,
-  MRT_ToggleFiltersButton,
   MRT_ToggleFullScreenButton,
   useMaterialReactTable,
   type MRT_ColumnDef,
 } from "material-react-table";
-import {
-  Box,
-  Drawer,
-  IconButton,
-  Paper,
-  Stack,
-  useMediaQuery,
-} from "@mui/material";
+import { Box, Drawer, IconButton, Stack } from "@mui/material";
 import OrdersTableFilterAndSort from "./orders-table-filter-and-sort";
-import {
-  Filter,
-  Filter2,
-  FilterAlt,
-  PrintRounded,
-  Search,
-  Sort,
-} from "@mui/icons-material";
-import OrderStatusSelectFilter from "./order-status-select-filter";
+import { Search } from "@mui/icons-material";
 
 //example data type
 type GiftCard = {
@@ -99,7 +79,7 @@ const data: GiftCard[] = [
 ];
 
 const Example = () => {
-  const isMobile = useMediaQuery("(max-width: 1000px)");
+  // const isMobile = useMediaQuery("(max-width: 1000px)");
 
   //should be memoized or stable
   const columns = useMemo<MRT_ColumnDef<GiftCard>[]>(
@@ -108,7 +88,7 @@ const Example = () => {
         accessorKey: "cover",
         header: "Logo",
         size: 10,
-        Cell: ({ cell }) => (
+        Cell: ({}) => (
           <div className="border bg-zinc-100 size-10 rounded-md"></div>
         ),
       },

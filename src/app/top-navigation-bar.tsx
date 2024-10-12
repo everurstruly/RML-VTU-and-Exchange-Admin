@@ -3,15 +3,7 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
-import CurrentUserCard from "./current-user-card";
-import { Avatar, Typography } from "@mui/material";
-import {
-  Menu as MenuIcon,
-  AccountCircleRounded,
-  PersonPinCircleRounded,
-  SupervisedUserCircle,
-  SupervisedUserCircleOutlined,
-} from "@mui/icons-material";
+import { Menu as MenuIcon } from "@mui/icons-material";
 
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
@@ -21,6 +13,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
+import { Typography } from "@mui/material";
 
 interface Props {
   /**
@@ -76,7 +69,7 @@ export default function TopNavigationBar(props: Props) {
           >
             <MenuIcon />
           </IconButton>
-          
+
           <Button
             color="primary"
             variant="contained"
