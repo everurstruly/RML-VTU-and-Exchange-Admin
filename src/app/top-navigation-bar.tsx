@@ -78,8 +78,9 @@ export default function TopNavigationBar(props: Props) {
 
           <Button
             color="primary"
-            variant="contained"
-            className="!ms-auto text-capitalize"
+            variant="outlined"
+            className="!ms-auto !capitalize !font-medium"
+            size="small"
           >
             Login
           </Button>
