@@ -22,7 +22,7 @@ export default function SimpleBottomNavigation() {
         // onChange={(evt, newValue) => {
         //   setValue(newValue);
         // }}
-        className="!h-[72px] px-2"
+        className="!h-[72px]"
       >
         <BottomNavigationAction
           // LinkComponent={NavLink}
