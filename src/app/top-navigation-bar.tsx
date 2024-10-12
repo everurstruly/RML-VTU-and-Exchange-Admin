@@ -35,7 +35,7 @@ export default function TopNavigationBar(props: Props) {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center", }}>
       <Typography variant="h6" sx={{ my: 2 }}>
         MUI
       </Typography>
@@ -56,9 +56,9 @@ export default function TopNavigationBar(props: Props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, display: "flex" }}>
       <CssBaseline />
-      <AppBar component="nav" position="fixed" color="default" className="py-2">
+      <AppBar component="nav" position="fixed" color="transparent" className="max-w-md mx-auto !left-0">
         <Toolbar className="gap-x-4">
           <IconButton
             color="inherit"

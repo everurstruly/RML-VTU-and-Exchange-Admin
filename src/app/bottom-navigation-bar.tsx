@@ -10,6 +10,7 @@ export default function SimpleBottomNavigation() {
     <Paper
       sx={{ position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 100 }}
       elevation={3}
+      className="max-w-md mx-auto"
     >
       <BottomNavigation
         showLabels
