@@ -109,7 +109,7 @@ const Example = () => {
         Cell: ({ cell }) => (
           <Box
             component="span"
-            sx={(theme) => ({
+            sx={() => ({
               borderRadius: ".25rem",
               p: ".25rem .5rem",
               fontSize: ".75rem",
