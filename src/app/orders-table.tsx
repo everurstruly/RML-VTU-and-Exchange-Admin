@@ -1,12 +1,36 @@
 import { useMemo } from "react";
 import {
   MaterialReactTable,
+  MRT_FilterOptionMenu,
+  MRT_GlobalFilterTextField,
+  MRT_ShowHideColumnsButton,
   MRT_TableContainer,
   MRT_TableHeadCellFilterContainer,
+  MRT_TablePagination,
+  MRT_ToggleDensePaddingButton,
+  MRT_ToggleFiltersButton,
+  MRT_ToggleFullScreenButton,
   useMaterialReactTable,
   type MRT_ColumnDef,
 } from "material-react-table";
-import { Box, Drawer, Paper, Stack, useMediaQuery } from "@mui/material";
+import {
+  Box,
+  Drawer,
+  IconButton,
+  Paper,
+  Stack,
+  useMediaQuery,
+} from "@mui/material";
+import OrdersTableFilterAndSort from "./orders-table-filter-and-sort";
+import {
+  Filter,
+  Filter2,
+  FilterAlt,
+  PrintRounded,
+  Search,
+  Sort,
+} from "@mui/icons-material";
+import OrderStatusSelectFilter from "./order-status-select-filter";
 
 //example data type
 type GiftCard = {
@@ -14,8 +38,9 @@ type GiftCard = {
     firstName: string;
     lastName: string;
   };
-  amount: 100;
+  amount: number;
   title: string;
+  region: string;
   status: string;
 };
 
@@ -26,8 +51,9 @@ const data: GiftCard[] = [
       firstName: "John",
       lastName: "Doe",
     },
-    amount: 100,
-    title: "East Daphne",
+    amount: 50,
+    region: "USA",
+    title: "Steam",
     status: "pending",
   },
   {
@@ -35,8 +61,9 @@ const data: GiftCard[] = [
       firstName: "Jane",
       lastName: "Doe",
     },
-    amount: 100,
-    title: "Columbus",
+    amount: 70,
+    region: "CND",
+    title: "Google Play",
     status: "success",
   },
   {
@@ -45,7 +72,8 @@ const data: GiftCard[] = [
       lastName: "Doe",
     },
     amount: 100,
-    title: "South Linda",
+    region: "USA",
+    title: "Apple",
     status: "processing",
   },
   {
@@ -54,7 +82,8 @@ const data: GiftCard[] = [
       lastName: "Vandy",
     },
     amount: 100,
-    title: "Lincoln",
+    region: "USA",
+    title: "Razer Gold",
     status: "processing",
   },
   {
@@ -62,8 +91,9 @@ const data: GiftCard[] = [
       firstName: "Joshua",
       lastName: "Rolluffs",
     },
-    amount: 100,
-    title: "Omaha",
+    amount: 200,
+    region: "UK",
+    title: "Steam",
     status: "failed",
   },
 ];
@@ -75,9 +105,22 @@ const Example = () => {
   const columns = useMemo<MRT_ColumnDef<GiftCard>[]>(
     () => [
       {
+        accessorKey: "cover",
+        header: "Logo",
+        size: 10,
+        Cell: ({ cell }) => (
+          <div className="border bg-zinc-100 size-10 rounded-md"></div>
+        ),
+      },
+      {
         accessorKey: "title",
-        header: "Title",
-        size: 100,
+        header: "Name",
+        size: 150,
+      },
+      {
+        accessorKey: "amount",
+        header: "Amount",
+        size: 50,
       },
       {
         accessorKey: "status",
@@ -87,26 +130,20 @@ const Example = () => {
           <Box
             component="span"
             sx={(theme) => ({
-              backgroundColor:
-                cell.getValue<number>() < 50_000
-                  ? theme.palette.error.dark
-                  : cell.getValue<number>() >= 50_000 &&
-                      cell.getValue<number>() < 75_000
-                    ? theme.palette.warning.dark
-                    : theme.palette.success.dark,
-              borderRadius: "0.25rem",
-              color: "#fff",
-              maxWidth: "9ch",
-              p: "0.25rem",
+              borderRadius: ".25rem",
+              p: ".25rem .5rem",
+              fontSize: ".75rem",
+              textTransform: "capitalize",
             })}
+            className="text-yellow-200 bg-yellow-600 font-medium"
           >
             {cell.getValue<number>()}
           </Box>
         ),
       },
       {
-        accessorKey: "amount", //normal accessorKey
-        header: "Amount",
+        accessorKey: "region",
+        header: "Region",
         size: 50,
       },
       {
@@ -115,8 +152,8 @@ const Example = () => {
           const fullName = `${firstName} ${lastName}`;
           return fullName;
         },
-        header: "User",
-        size: 100,
+        header: "Customer",
+        size: 150,
       },
     ],
     []
@@ -131,7 +168,9 @@ const Example = () => {
     // enableColumnPinning: true,
     // enableFacetedValues: true,
     // enableRowActions: true,
-    enableRowSelection: true,
+    // enableRowSelection: true,
+    enableColumnActions: false,
+    enableColumnFilters: false,
     initialState: {
       showGlobalFilter: true,
     },
@@ -143,37 +182,59 @@ const Example = () => {
     },
     muiPaginationProps: {
       color: "primary",
-      //   rowsPerPageOptions: [10, 20, 30],
+      rowsPerPageOptions: [10, 20, 30],
       shape: "rounded",
       variant: "outlined",
     },
     // muiFilterTextFieldProps: ({ column }) => ({
     //   label: `Filter by ${column.columnDef.header}`,
     // }),
+    renderToolbarInternalActions: ({ table }) => (
+      <>
+        {/* add your own custom print button or something */}
+        {/* <IconButton onClick={() => void 0}>
+          <PrintRounded />
+          // Custom FIlter Button
+        </IconButton> */}
+        <IconButton
+          sx={{
+            border: "1px solid #9999",
+            borderRadius: ".25rem",
+            padding: ".25rem .325rem",
+          }}
+        >
+          <Search />
+        </IconButton>
+        {/* built-in buttons (must pass in table prop for them to work!) */}
+        <MRT_ShowHideColumnsButton table={table} />
+        <MRT_ToggleDensePaddingButton table={table} />
+        <MRT_ToggleFullScreenButton table={table} />
+      </>
+    ),
   });
 
-  return <MaterialReactTable table={table} />;
-  //   return (
-  //     <div>
-  //       {/* <MaterialReactTable table={table} />; */}
-  //       <div className="py2 bg-white">
-  //         <input type="text" placeholder="Search..." />
-  //       </div>
-  //       <MRT_TableContainer table={table} />
-  //       <Drawer>
-  //         <Stack p="8px" gap="8px">
-  //           {table.getLeafHeaders().map((header) => (
-  //             <MRT_TableHeadCellFilterContainer
-  //               key={header.id}
-  //               header={header}
-  //               table={table}
-  //               in
-  //             />
-  //           ))}
-  //         </Stack>
-  //       </Drawer>
-  //     </div>
-  //   );
+  // return <MaterialReactTable table={table} />;
+  return (
+    <div className="pt-5 pb-10">
+      <OrdersTableFilterAndSort table={table} />
+      <MRT_TableContainer
+        table={table}
+        className="mt-6 mx-4 border rounded-lg"
+      />
+      <Drawer>
+        <Stack p="8px" gap="8px">
+          {table.getLeafHeaders().map((header) => (
+            <MRT_TableHeadCellFilterContainer
+              key={header.id}
+              header={header}
+              table={table}
+              in
+            />
+          ))}
+        </Stack>
+      </Drawer>
+    </div>
+  );
 };
 
 export default Example;
