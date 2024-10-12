@@ -78,7 +78,7 @@ export default function TopNavigationBar(props: Props) {
 
           <Button
             color="primary"
-            variant="outlined"
+            variant="contained"
             className="!ms-auto !capitalize !font-medium"
             size="small"
           >
