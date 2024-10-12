@@ -12,18 +12,12 @@ const CurrentUserCard: React.FC<CurrentUserCard> = ({ name, email }) => {
   return (
     <Card
       sx={{
-        // borderRadius: "1.5rem",
-        // borderTopLeftRadius: "1.5rem",
-        // borderBottomLeftRadius: "1.5rem",
+        borderRadius: ".5rem",
       }}
       variant="outlined"
     >
       <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500], borderRadius: ".25rem" }} aria-label="recipe">
-            {name[0].toUpperCase()}
-          </Avatar>
-        }
+        avatar={<Avatar aria-label="recipe">{name[0].toUpperCase()}</Avatar>}
         action={
           <ArrowRight
             aria-label="account-settings"
