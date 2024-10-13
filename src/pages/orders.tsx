@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import GiftCardOrdersTable from "../app/giftcard-orders-table";
 import CryptoOrdersTable from "../app/crypto-orders-table";
 import { CurrencyExchangeOutlined, SellOutlined } from "@mui/icons-material";
+import { Fade } from "@mui/material";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -18,15 +19,17 @@ function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
 
   return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`full-width-tabpanel-${index}`}
-      aria-labelledby={`full-width-tab-${index}`}
-      {...other}
-    >
-      {children}
-    </div>
+    <Fade in={value === index}>
+      <div
+        role="tabpanel"
+        hidden={value !== index}
+        id={`full-width-tabpanel-${index}`}
+        aria-labelledby={`full-width-tab-${index}`}
+        {...other}
+      >
+        {children}
+      </div>
+    </Fade>
   );
 }
 
