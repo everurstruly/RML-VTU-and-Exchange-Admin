@@ -5,7 +5,12 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import GiftCardOrdersTable from "../../app/giftcard-orders-table";
 import CryptoOrdersTable from "../../app/crypto-orders-table";
-import { CurrencyExchangeOutlined, Payment, PaymentOutlined, SellOutlined } from "@mui/icons-material";
+import {
+  CurrencyExchangeOutlined,
+  Payment,
+  PaymentOutlined,
+  SellOutlined,
+} from "@mui/icons-material";
 import { Fade } from "@mui/material";
 import PageTitle from "../../app/page-title";
 
@@ -53,8 +58,8 @@ export default function FullWidthTabs() {
     <div className="pt-4 pb-20">
       <PageTitle text="Yours Orders" />
 
-      <Box className="!pb-4">
-        <div className="border-b rounded-md mx-4">
+      <Box className="!py-4">
+        <div className="border-b rounded-md mx-4 mb-2">
           <Tabs
             value={value}
             onChange={handleChange}
@@ -66,13 +71,13 @@ export default function FullWidthTabs() {
             <Tab
               label="GiftCard"
               icon={<PaymentOutlined className="!size-5" />}
-              sx={{ fontSize: ".875rem", rowGap: 0.75, paddingY: ".875rem" }}
+              sx={{ fontSize: ".813rem", rowGap: .3875 }}
               {...a11yProps(0)}
             />
             <Tab
               label="Crypto"
               icon={<CurrencyExchangeOutlined className="!size-5" />}
-              sx={{ fontSize: ".875rem", rowGap: 0.75, paddingY: ".875rem" }}
+              sx={{ fontSize: ".813rem", rowGap: .3875 }}
               {...a11yProps(0)}
             />
           </Tabs>
