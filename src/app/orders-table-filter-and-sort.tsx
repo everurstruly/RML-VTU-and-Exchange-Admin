@@ -14,8 +14,8 @@ export default function OrdersTableFilterAndSort({ table }: { table: any }) {
         <OrderStatusSelectFilter />
         <IconButton
           sx={{
-            padding: ".35rem",
-            border: "1px solid #ccc",
+            padding: ".375rem",
+            border: "1px solid #eee",
             borderRadius: ".3875rem",
           }}
         >
@@ -42,9 +42,13 @@ export default function OrdersTableFilterAndSort({ table }: { table: any }) {
             fullWidth
           />
         </div> */}
-        <div className="flex items-center">
-          <MRT_ShowHideColumnsButton table={table} />
-          <MRT_ToggleDensePaddingButton table={table} />
+        <div className="ms-auto flex items-center gap-x-3">
+          <div className="border rounded-lg p-1.5">
+            <MRT_ShowHideColumnsButton table={table} className="!p-0" />
+          </div>
+          <div className="border rounded-lg p-1.5">
+            <MRT_ToggleDensePaddingButton table={table} className="!p-0" />
+          </div>
         </div>
       </div>
     </Stack>
