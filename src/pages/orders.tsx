@@ -7,6 +7,7 @@ import GiftCardOrdersTable from "../app/giftcard-orders-table";
 import CryptoOrdersTable from "../app/crypto-orders-table";
 import { CurrencyExchangeOutlined, SellOutlined } from "@mui/icons-material";
 import { Fade } from "@mui/material";
+import PageTitle from "../app/page-title";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -50,7 +51,7 @@ export default function FullWidthTabs() {
 
   return (
     <div className="pt-4 pb-20">
-      <h1 className="text-lg font-semibold px-4 py-2">Orders</h1>
+      <PageTitle text="Yours Orders" />
 
       <Box className="!pb-4">
         <div className="border-b rounded-md mx-4">
