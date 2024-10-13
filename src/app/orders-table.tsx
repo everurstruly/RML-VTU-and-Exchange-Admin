@@ -3,6 +3,7 @@ import {
   MRT_ShowHideColumnsButton,
   MRT_TableContainer,
   MRT_TableHeadCellFilterContainer,
+  MRT_TablePagination,
   MRT_ToggleDensePaddingButton,
   MRT_ToggleFullScreenButton,
   useMaterialReactTable,
@@ -85,17 +86,15 @@ const Example = () => {
   const columns = useMemo<MRT_ColumnDef<GiftCard>[]>(
     () => [
       {
-        accessorKey: "cover",
-        header: "Logo",
-        size: 10,
-        Cell: ({}) => (
-          <div className="border bg-zinc-100 size-10 rounded-md"></div>
-        ),
-      },
-      {
         accessorKey: "title",
-        header: "Name",
-        size: 150,
+        header: "Type",
+        size: 200,
+        Cell: ({ cell }) => (
+          <div className="flex items-center gap-x-4">
+            <div className="border bg-zinc-100 size-10 rounded-md"></div>
+            {cell.getValue<string>()}
+          </div>
+        ),
       },
       {
         accessorKey: "amount",
@@ -153,6 +152,10 @@ const Example = () => {
     enableColumnFilters: false,
     initialState: {
       showGlobalFilter: true,
+      pagination: {
+        pageIndex: 1,
+        pageSize: 2,
+      },
     },
     paginationDisplayMode: "pages",
     positionToolbarAlertBanner: "bottom",
@@ -162,7 +165,6 @@ const Example = () => {
     },
     muiPaginationProps: {
       color: "primary",
-      rowsPerPageOptions: [10, 20, 30],
       shape: "rounded",
       variant: "outlined",
     },
@@ -197,10 +199,13 @@ const Example = () => {
   return (
     <div className="pt-5 pb-10">
       <OrdersTableFilterAndSort table={table} />
-      <MRT_TableContainer
-        table={table}
-        className="mt-6 mx-4 border rounded-lg"
-      />
+      <div className="px-4 pt-6 pb-4">
+        <MRT_TableContainer table={table} className="border rounded-lg" />
+      </div>
+      <div className="flex justify-center">
+        <MRT_TablePagination table={table} showRowsPerPage={false} />
+      </div>
+
       <Drawer>
         <Stack p="8px" gap="8px">
           {table.getLeafHeaders().map((header) => (
