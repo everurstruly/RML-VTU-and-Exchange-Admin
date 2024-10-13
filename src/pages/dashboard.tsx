@@ -21,7 +21,7 @@ export default function HomePage() {
       <PageTitle text="Dashboard" />
 
       <section className="py-4 px-4">
-        <h4 className="text-xs mb-2 text-zinc-400">Statistics Overview</h4>
+        <h4 className="text-xs mb-2 text-zinc-400">Statistics</h4>
 
         <Stack direction="row" spacing={1}>
           <Card variant="outlined" className="w-full !rounded-lg">
@@ -61,7 +61,7 @@ export default function HomePage() {
           <Card variant="outlined" className="w-full !rounded-lg">
             <CardHeader
               avatar={<StarBorderOutlined className="!size-4 text-primary" />}
-              title="Performance"
+              title="Activities"
               className="!p-3 !pb-2 gap-x-1.5"
               classes={{ title: "!text-xs text-zinc-400", avatar: "!me-0" }}
             />
