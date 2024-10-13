@@ -20,8 +20,8 @@ type GiftCard = {
     lastName: string;
   };
   amount: number;
-  title: string;
-  region: string;
+  coin: string;
+  sendFrom: string;
   status: string;
 };
 
@@ -33,8 +33,8 @@ const data: GiftCard[] = [
       lastName: "Doe",
     },
     amount: 50,
-    region: "USA",
-    title: "Steam",
+    sendFrom: "Bybit",
+    coin: "Notcoin",
     status: "pending",
   },
   {
@@ -43,8 +43,8 @@ const data: GiftCard[] = [
       lastName: "Doe",
     },
     amount: 70,
-    region: "CND",
-    title: "Google Play",
+    sendFrom: "Other",
+    coin: "TON",
     status: "success",
   },
   {
@@ -53,8 +53,8 @@ const data: GiftCard[] = [
       lastName: "Doe",
     },
     amount: 100,
-    region: "USA",
-    title: "Apple",
+    sendFrom: "Bybit",
+    coin: "USDT",
     status: "processing",
   },
   {
@@ -63,8 +63,8 @@ const data: GiftCard[] = [
       lastName: "Vandy",
     },
     amount: 100,
-    region: "USA",
-    title: "Razer Gold",
+    sendFrom: "Bybit",
+    coin: "BTC",
     status: "processing",
   },
   {
@@ -73,8 +73,8 @@ const data: GiftCard[] = [
       lastName: "Rolluffs",
     },
     amount: 200,
-    region: "UK",
-    title: "Steam",
+    sendFrom: "Other",
+    coin: "Notcoin",
     status: "failed",
   },
 ];
@@ -86,8 +86,8 @@ const CryptoOrdersTable = () => {
   const columns = useMemo<MRT_ColumnDef<GiftCard>[]>(
     () => [
       {
-        accessorKey: "title",
-        header: "Type",
+        accessorKey: "coin",
+        header: "Coin",
         size: 200,
         Cell: ({ cell }) => (
           <div className="flex items-center gap-x-4">
@@ -121,8 +121,8 @@ const CryptoOrdersTable = () => {
         ),
       },
       {
-        accessorKey: "region",
-        header: "Region",
+        accessorKey: "sendFrom",
+        header: "Method",
         size: 50,
       },
       {
