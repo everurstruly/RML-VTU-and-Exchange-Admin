@@ -21,21 +21,21 @@ export default function HomePage() {
       <PageTitle text="Dashboard" />
 
       <section className="py-4 px-4">
-        <h4 className="text-xs mb-2 text-zinc-400">Statistics</h4>
+        <h4 className="text-xs mb-2 text-zinc-500">Statistics</h4>
 
         <Stack direction="row" spacing={1}>
           <Card variant="outlined" className="w-full !rounded-lg">
             <CardHeader
               avatar={<FlagOutlined className="!size-4 text-error" />}
               title="Customers"
-              className="!p-3 !pb-2 gap-x-1.5"
+              className="!p-2.5 !pb-2 gap-x-1.5"
               classes={{ title: "!text-xs text-zinc-400", avatar: "!me-0" }}
             />
-            <CardContent className="!pt-0 !pb-3">
+            <CardContent className="!p-3 !pt-0">
               <Typography
                 variant="h5"
                 fontWeight={500}
-                className="text-zinc-600"
+                className="text-zinc-700"
               >
                 200
               </Typography>
@@ -45,14 +45,14 @@ export default function HomePage() {
             <CardHeader
               avatar={<StoreOutlined className="!size-4 text-success" />}
               title="Income"
-              className="!p-3 !pb-2 gap-x-1.5"
+              className="!p-2.5 !pb-2 gap-x-1.5"
               classes={{ title: "!text-xs text-zinc-400", avatar: "!me-0" }}
             />
-            <CardContent className="!pt-0 !pb-3">
+            <CardContent className="!p-3 !pt-0">
               <Typography
                 variant="h5"
                 fontWeight={500}
-                className="text-zinc-600"
+                className="text-zinc-700"
               >
                 200
               </Typography>
@@ -62,14 +62,14 @@ export default function HomePage() {
             <CardHeader
               avatar={<StarBorderOutlined className="!size-4 text-primary" />}
               title="Activities"
-              className="!p-3 !pb-2 gap-x-1.5"
+              className="!p-2.5 !pb-2 gap-x-1.5"
               classes={{ title: "!text-xs text-zinc-400", avatar: "!me-0" }}
             />
-            <CardContent className="!pt-0 !pb-3">
+            <CardContent className="!p-3 !pt-0">
               <Typography
                 variant="h5"
                 fontWeight={500}
-                className="text-zinc-600"
+                className="text-zinc-700"
               >
                 200
               </Typography>
@@ -79,14 +79,14 @@ export default function HomePage() {
       </section>
 
       <section className="py-4 px-4">
-        <h4 className="text-xs mb-2 text-zinc-400">VTU Service Management</h4>
+        <h4 className="text-xs mb-2 text-zinc-500">VTU Service Management</h4>
 
         <Card variant="outlined" className="w-full p-4 !rounded-lg">
           <label className="text-xs mb-1.5 text-zinc-400 inline-flex items-center gap-x-1">
             <AccountBalanceWalletOutlined className="text-zinc-400 !size-4" />
             Wallet Balance
           </label>
-          <Typography color="textSecondary" variant="h5" fontWeight={500}>
+          <Typography className="text-zinc-700" variant="h5" fontWeight={500}>
             $40,000
           </Typography>
         </Card>
@@ -116,7 +116,7 @@ export default function HomePage() {
       </section>
 
       <section className="py-4 px-4">
-        <h4 className="text-xs mb-2 text-zinc-400">
+        <h4 className="text-xs mb-2 text-zinc-500">
           Exchange Services Management
         </h4>
         <Stack spacing={1}>
@@ -144,7 +144,7 @@ export default function HomePage() {
       </section>
 
       <section className="py-4 px-4">
-        <h4 className="text-xs mb-2 text-zinc-400">Business Managment</h4>
+        <h4 className="text-xs mb-2 text-zinc-500">Business Managment</h4>
         <Stack spacing={1}>
           <Button
             color="inherit"
