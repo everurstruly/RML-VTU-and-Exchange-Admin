@@ -52,8 +52,8 @@ export default function FullWidthTabs() {
     <div className="pt-4 pb-20">
       <h1 className="text-lg font-semibold px-4 py-2">Orders</h1>
 
-      <Box className="!py-4">
-        <div className="border rounded-md mx-4">
+      <Box className="!pb-4">
+        <div className="border-b rounded-md mx-4">
           <Tabs
             value={value}
             onChange={handleChange}
@@ -63,15 +63,15 @@ export default function FullWidthTabs() {
             aria-label="full width tabs example"
           >
             <Tab
-              label="GiftCard"
-              icon={<SellOutlined className="!size-6" />}
-              sx={{ fontSize: ".75rem", rowGap: 0.75, paddingY: ".875rem" }}
+              label="Gift Card"
+              icon={<SellOutlined className="!size-5.5" />}
+              sx={{ rowGap: 0.75, paddingY: ".875rem" }}
               {...a11yProps(0)}
             />
             <Tab
               label="Crypto"
-              icon={<CurrencyExchangeOutlined className="!size-6" />}
-              sx={{ fontSize: ".75rem", rowGap: 0.75, paddingY: ".875rem" }}
+              icon={<CurrencyExchangeOutlined className="!size-5.5" />}
+              sx={{ rowGap: 0.75, paddingY: ".875rem" }}
               {...a11yProps(0)}
             />
           </Tabs>
