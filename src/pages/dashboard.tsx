@@ -13,11 +13,12 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import PageTitle from "../app/page-title";
 
 export default function HomePage() {
   return (
     <div className="pt-4 pb-40">
-      <h1 className="text-base font-medium px-4 py-2">Dashbaord</h1>
+      <PageTitle text="Dashboard" />
 
       <section className="py-4 px-4">
         <h4 className="text-xs mb-2 text-zinc-400">Statistics Overview</h4>
