@@ -1,18 +1,10 @@
 import {
   AccountBalanceWalletOutlined,
   ArrowRightAlt,
-  Balance,
-  FlagCircleRounded,
-  FlagCircleSharp,
   FlagOutlined,
-  FlagSharp,
   StarBorderOutlined,
-  Store,
   StoreOutlined,
-  StoreRounded,
-  Wallet,
 } from "@mui/icons-material";
-import { Link } from "react-router-dom";
 import {
   Button,
   Card,
