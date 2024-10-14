@@ -1,96 +1,274 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Stepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
-import StepContent from "@mui/material/StepContent";
-import Button from "@mui/material/Button";
-import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
+import { Button, Checkbox, FormControlLabel, Stack } from "@mui/material";
+import DynamicStepper, {
+  StepItemHandlers,
+  StepperState,
+} from "../../app/dynamic-stepper";
+import GiftCardOrderReviewCard from "../../app/giftcard-order-review-card";
 import PageTitle from "../../app/page-title";
+import OrderRejectionReasonsList from "../../app/order-rejection-reasons-list";
 
-const steps = [
+const initGeneralSteps = [
   {
-    label: "Select campaign settings",
-    description: `For each ad campaign that you create, you can control how much
-              you're willing to spend on clicks and conversions, which networks
-              and geographical locations you want your ads to show on, and more.`,
-  },
-  {
-    label: "Create an ad group",
-    description:
-      "An ad group contains one or more ads which target a shared set of keywords.",
-  },
-  {
-    label: "Create an ad",
-    description: `Try out different ad text to see what brings in the most customers,
-              and learn how to enhance your ads using features like ad extensions.
-              If you run into any problems with your ads, find out how to tell if
-              they're running and how to resolve approval issues.`,
+    label: "Review Order",
+    renderBody: (
+      stepper: StepperState,
+      { handleNext, handleAccept, handleReject }: StepItemHandlers
+    ) => {
+      return (
+        <>
+          <GiftCardOrderReviewCard
+            coverUri="https://via.placeholder.com/150"
+            userId="32UD457"
+            name="Steam"
+            region="USA"
+            amount={29.99}
+            status="idle"
+            createdAt="2024-10-13T12:34:56Z"
+            rate={{
+              value: 1600,
+              from: "USD",
+              to: "NGN",
+            }}
+            visualProofsOfPaymentUris={[]}
+          />
+
+          <Stack direction="row-reverse" spacing={2} sx={{ mt: 4, mb: 2 }}>
+            <Button
+              variant="contained"
+              fullWidth
+              color="primary"
+              onClick={() => {
+                handleAccept();
+                handleNext();
+              }}
+            >
+              Redeem
+            </Button>
+            <Button
+              variant="outlined"
+              fullWidth
+              color="error"
+              onClick={() => {
+                handleReject();
+                handleNext();
+              }}
+            >
+              Reject
+            </Button>
+          </Stack>
+        </>
+      );
+    },
   },
 ];
 
-export default function GiftCardOrdersItemPage() {
-  const [activeStep, setActiveStep] = React.useState(0);
-
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleReset = () => {
-    setActiveStep(0);
-  };
-
+export default function GiftcardOrdersItemPage() {
   return (
-    <Box className="pt-4 pb-40">
-      <PageTitle text="Order Processing - Gift Card" />
+    <>
+      <PageTitle text="Order Processing - Crypto" />
+      <div className="py-4 px-4">
+        <DynamicStepper
+          acceptanceSteps={[
+            ...initGeneralSteps,
+            {
+              label: "Verify Card Authenticity",
+              renderBody: (
+                { itemIndex, steps },
+                {
+                  handleBack,
+                  handleNext,
+                  handleAccept,
+                  handleReject,
+                }: StepItemHandlers
+              ) => {
+                return (
+                  <>
+                    <Stack direction="row" spacing={2} sx={{ mt: 4, mb: 2 }}>
+                      <Button
+                        variant="outlined"
+                        disabled={itemIndex === 0}
+                        onClick={handleBack}
+                      >
+                        Back
+                      </Button>
 
-      <Stepper activeStep={activeStep} orientation="vertical">
-        {steps.map((step, index) => (
-          <Step key={step.label}>
-            <StepLabel
-              optional={
-                index === steps.length - 1 ? (
-                  <Typography variant="caption">Last step</Typography>
-                ) : null
-              }
-            >
-              {step.label}
-            </StepLabel>
-            <StepContent>
-              <Typography>{step.description}</Typography>
-              <Box sx={{ mb: 2 }}>
-                <Button
-                  variant="contained"
-                  onClick={handleNext}
-                  sx={{ mt: 1, mr: 1 }}
-                >
-                  {index === steps.length - 1 ? "Finish" : "Continue"}
-                </Button>
-                <Button
-                  disabled={index === 0}
-                  onClick={handleBack}
-                  sx={{ mt: 1, mr: 1 }}
-                >
-                  Back
-                </Button>
-              </Box>
-            </StepContent>
-          </Step>
-        ))}
-      </Stepper>
-      {activeStep === steps.length && (
-        <Paper square elevation={0} sx={{ p: 3 }}>
-          <Typography>All steps completed - you&apos;re finished</Typography>
-          <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
-            Reset
-          </Button>
-        </Paper>
-      )}
-    </Box>
+                      <Button
+                        variant="contained"
+                        onClick={handleNext}
+                        disableElevation
+                      >
+                        {itemIndex === steps.length - 1 ? "Finish" : "Continue"}
+                      </Button>
+                    </Stack>
+                  </>
+                );
+              },
+            },
+            {
+              label: "Complete Payments",
+              description: `Try out different ad text to see what brings in the most customers,
+          and learn how to enhance your ads using features like ad extensions.
+          If you run into any problems with your ads, find out how to tell if
+          they're running and how to resolve approval issues.`,
+            },
+            {
+              label: "Complete Order",
+              description: `Try out different ad text to see what brings in the most customers,
+          and learn how to enhance your ads using features like ad extensions.
+          If you run into any problems with your ads, find out how to tell if
+          they're running and how to resolve approval issues.`,
+            },
+          ]}
+          rejectionSteps={[
+            ...initGeneralSteps,
+            {
+              label: "Select Rejection Reason",
+              renderBody: (
+                { itemIndex, steps },
+                {
+                  handleBack,
+                  handleNext,
+                  handleAccept,
+                  handleReject,
+                  resetDecision,
+                }: StepItemHandlers
+              ) => {
+                return (
+                  <>
+                    <Stack spacing={1.5} sx={{ mt: 4, mb: 4 }}>
+                      <OrderRejectionReasonsList
+                      // onSelected={(reason) => {
+                      //   handleAccept();
+                      //   handleNext();
+                      // }}
+                      />
+                    </Stack>
+
+                    <div className="flex justify-end gap-x-4 items-center">
+                      <Button
+                        variant="outlined"
+                        onClick={() => {
+                          handleBack();
+                          resetDecision();
+                        }}
+                      >
+                        Back
+                      </Button>
+                      <Button
+                        variant="contained"
+                        onClick={() => {
+                          handleNext();
+                        }}
+                      >
+                        Next
+                      </Button>
+                    </div>
+                  </>
+                );
+              },
+            },
+            {
+              label: "Take Further Actions",
+              renderBody: (
+                { itemIndex, steps },
+                {
+                  handleBack,
+                  handleNext,
+                  handleAccept,
+                  handleReject,
+                }: StepItemHandlers
+              ) => {
+                return (
+                  <Stack spacing={3} className="pt-4">
+                    <div>
+                      <h5 className="text-sm text-zinc-600 mb-2">
+                        Start chat as{" "}
+                        <span className="text-zinc-800">TechSupport</span>{" "}
+                        (Optional)
+                      </h5>
+                      <textarea
+                        placeholder="Write a message..."
+                        rows={4}
+                        style={{
+                          width: "100%",
+                          padding: "12px",
+                          borderRadius: ".5rem",
+                        }}
+                      />
+                    </div>
+
+                    <FormControlLabel
+                      control={<Checkbox sx={{ p: 0, mr: 1 }} color="error" />}
+                      label="Deny Customer Support" // refuse appeal
+                      className="!text-sm text-red-600"
+                    />
+
+                    <Stack direction="row" spacing={2} sx={{ mt: 4, mb: 2 }}>
+                      <Button
+                        variant="outlined"
+                        disabled={itemIndex === 0}
+                        onClick={handleBack}
+                      >
+                        Back
+                      </Button>
+
+                      <Button
+                        variant="contained"
+                        onClick={handleNext}
+                        disableElevation
+                      >
+                        {itemIndex === steps.length - 1 ? "Finish" : "Continue"}
+                      </Button>
+                    </Stack>
+                  </Stack>
+                );
+              },
+            },
+            {
+              label: "Complete Order",
+              description: `Try out different ad text to see what brings in the most customers,
+          and learn how to enhance your ads using features like ad extensions.
+          If you run into any problems with your ads, find out how to tell if
+          they're running and how to resolve approval issues.`,
+            },
+          ]}
+        />
+      </div>
+    </>
   );
+
+  // Continue or Back+Next
+  // I want to reject the order
 }
+
+/*
+appealing, reviewing, processing, rejected
+*/
+
+/*
+
+Review the order -> Accept, Reject 
+
+on ACCEPT
+1. confirm order with user receipt and all
+2. calc/identify amount to send to the user 
+    AND identify the account details (with copy functions) to send to
+3. complete Order - make payments
+    (Optional) upload payment receipt
+    Complete Order
+
+
+on REJECTED
+1. Select from a list of reasons (rejected)
+2. If (refuse appeal) -> Select from a list of reasons
+2. Add optional additionl message
+3. Complete Order
+
+
+*/
+
+/*
+
+users can appeal rejected orders (the higher the level, the higher the appeal chances)
+
+*/
