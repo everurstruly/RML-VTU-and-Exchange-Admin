@@ -1,5 +1,7 @@
 import {
   AccountBalanceWalletOutlined,
+  ArrowDropUpRounded,
+  ArrowDropUpSharp,
   ArrowRightAlt,
   FlagOutlined,
   StarBorderOutlined,
@@ -26,12 +28,25 @@ export default function HomePage() {
         <Stack direction="row" spacing={1}>
           <Card variant="outlined" className="w-full !rounded-lg">
             <CardHeader
-              avatar={<FlagOutlined className="!size-4 text-error" />}
-              title="Customers"
+              avatar={
+                <div className="size-7 rounded-lg border grid place-content-center">
+                  <FlagOutlined className="!size-4 text-error" />
+                </div>
+              }
+              // action={
+              //   <p className="inline-flex items-center text-xs px-3 text-zinc-500 font-medium">
+              //     <ArrowDropUpRounded className="text-success" /> 22%
+              //   </p>
+              // }
+              // title="Customers"
               className="!p-2.5 !pb-2 gap-x-1.5"
-              classes={{ title: "!text-xs text-zinc-400", avatar: "!me-0" }}
+              classes={{
+                title: "!text-xs text-zinc-400",
+                action: "flex items-center !self-center",
+                avatar: "!me-0",
+              }}
             />
-            <CardContent className="!p-3 !pt-0">
+            <CardContent className="!p-3 !py-0">
               <Typography
                 variant="h5"
                 fontWeight={500}
@@ -40,15 +55,25 @@ export default function HomePage() {
                 200
               </Typography>
             </CardContent>
+            <div className="px-2.5 pt-1.5 pb-2">
+              <Typography variant="body2" className="!text-xs !text-zinc-400">
+                Customers
+              </Typography>
+            </div>
           </Card>
           <Card variant="outlined" className="w-full !rounded-lg">
             <CardHeader
-              avatar={<StoreOutlined className="!size-4 text-success" />}
-              title="Income"
+              // avatar={<StoreOutlined className="!size-4 text-success" />}
+              // title="Income"
+              avatar={
+                <div className="size-7 rounded-lg border grid place-content-center">
+                  <StoreOutlined className="!size-4 text-success" />
+                </div>
+              }
               className="!p-2.5 !pb-2 gap-x-1.5"
               classes={{ title: "!text-xs text-zinc-400", avatar: "!me-0" }}
             />
-            <CardContent className="!p-3 !pt-0">
+            <CardContent className="!p-3 !py-0">
               <Typography
                 variant="h5"
                 fontWeight={500}
@@ -57,15 +82,25 @@ export default function HomePage() {
                 200
               </Typography>
             </CardContent>
+            <div className="px-2.5 pt-1.5 pb-2">
+              <Typography variant="body2" className="!text-xs !text-zinc-400">
+                Income
+              </Typography>
+            </div>
           </Card>
           <Card variant="outlined" className="w-full !rounded-lg">
             <CardHeader
-              avatar={<StarBorderOutlined className="!size-4 text-primary" />}
-              title="Activities"
+              // avatar={<StarBorderOutlined className="!size-4 text-primary" />}
+              // title="Activities"
+              avatar={
+                <div className="size-7 rounded-lg border grid place-content-center">
+                  <StarBorderOutlined className="!size-4 text-primary" />
+                </div>
+              }
               className="!p-2.5 !pb-2 gap-x-1.5"
               classes={{ title: "!text-xs text-zinc-400", avatar: "!me-0" }}
             />
-            <CardContent className="!p-3 !pt-0">
+            <CardContent className="!p-3 !py-0">
               <Typography
                 variant="h5"
                 fontWeight={500}
@@ -74,6 +109,11 @@ export default function HomePage() {
                 200
               </Typography>
             </CardContent>
+            <div className="px-2.5 pt-1.5 pb-2">
+              <Typography variant="body2" className="!text-xs !text-zinc-400">
+                Activities
+              </Typography>
+            </div>
           </Card>
         </Stack>
       </section>
