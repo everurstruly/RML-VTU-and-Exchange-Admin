@@ -12,7 +12,7 @@ import {
 import { Box, Drawer, IconButton, Stack } from "@mui/material";
 import OrdersTableFilterAndSort from "./orders-table-filter-and-sort";
 import { Search } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 //example data type
 type GiftCard = {
@@ -21,6 +21,7 @@ type GiftCard = {
     lastName: string;
   };
   amount: number;
+  datetime?: string;
   title: string;
   region: string;
   status: string;
@@ -91,17 +92,33 @@ const GiftCardOrdersTable = () => {
         accessorKey: "title",
         header: "Type",
         size: 200,
-        Cell: ({ cell }) => (
+        Cell: ({ cell, column, row }) => (
           <div className="flex items-center gap-x-4">
             <div className="border bg-zinc-100 size-10 rounded-md"></div>
-            {cell.getValue<string>()}
+            <div className="flex flex-col gap-y- 5">
+              {cell.getValue<string>()}
+              <p className="text-xs text-zinc-400">
+                By {row.getValue<string>("Customer")}
+              </p>
+            </div>
           </div>
         ),
       },
       {
+        accessorFn: () => {
+          return (
+            <p className="text-xs text-zinc-500">
+              Today <span className="block">5pm</span>
+            </p>
+          );
+        },
+        header: "Date",
+        size: 100,
+      },
+      {
         accessorKey: "amount",
         header: "Amount",
-        size: 50,
+        size: 25,
       },
       {
         accessorKey: "status",
@@ -154,10 +171,11 @@ const GiftCardOrdersTable = () => {
     enableColumnFilters: false,
     initialState: {
       showGlobalFilter: true,
-      pagination: {
-        pageIndex: 1,
-        pageSize: 2,
-      },
+      columnVisibility: { status: false, region: false, Customer: false },
+      // pagination: {
+      //   pageIndex: 1,
+      //   pageSize: 10,
+      // },
     },
     paginationDisplayMode: "pages",
     positionToolbarAlertBanner: "bottom",
@@ -178,7 +196,7 @@ const GiftCardOrdersTable = () => {
         navigate("/orders/giftcards/" + row.id);
       },
       sx: {
-        cursor: 'pointer', //you might want to change the cursor too when adding an onClick
+        cursor: "pointer", //you might want to change the cursor too when adding an onClick
       },
     }),
     renderToolbarInternalActions: ({ table }) => (
