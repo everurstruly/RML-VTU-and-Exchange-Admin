@@ -12,6 +12,7 @@ import {
 import { Box, Drawer, IconButton, Stack } from "@mui/material";
 import OrdersTableFilterAndSort from "./orders-table-filter-and-sort";
 import { Search } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom"
 
 //example data type
 type GiftCard = {
@@ -81,6 +82,7 @@ const data: GiftCard[] = [
 
 const GiftCardOrdersTable = () => {
   // const isMobile = useMediaQuery("(max-width: 1000px)");
+  const navigate = useNavigate();
 
   //should be memoized or stable
   const columns = useMemo<MRT_ColumnDef<GiftCard>[]>(
@@ -171,6 +173,14 @@ const GiftCardOrdersTable = () => {
     // muiFilterTextFieldProps: ({ column }) => ({
     //   label: `Filter by ${column.columnDef.header}`,
     // }),
+    muiTableBodyRowProps: ({ row }) => ({
+      onClick: (event) => {
+        navigate("/orders/giftcards/" + row.id);
+      },
+      sx: {
+        cursor: 'pointer', //you might want to change the cursor too when adding an onClick
+      },
+    }),
     renderToolbarInternalActions: ({ table }) => (
       <>
         {/* add your own custom print button or something */}
