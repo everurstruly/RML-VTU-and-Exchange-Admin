@@ -7,9 +7,11 @@ import {
   ForumOutlined,
   Storefront,
 } from "@mui/icons-material";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 export default function SimpleBottomNavigation() {
-  // const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
 
   return (
     <Paper
@@ -18,37 +20,37 @@ export default function SimpleBottomNavigation() {
     >
       <BottomNavigation
         showLabels
-        // value={value}
-        // onChange={(evt, newValue) => {
-        //   setValue(newValue);
-        // }}
+        value={value}
+        onChange={(evt, newValue) => {
+          setValue(newValue);
+        }}
         className="!h-[72px]"
       >
         <BottomNavigationAction
-          // LinkComponent={NavLink}
           className="gap-y-1 !justify-end !pb-2.5"
-          href="/dashboard"
+          component={NavLink}
+          to="/dashboard"
           label="Dashboard"
           icon={<DashboardOutlined className="!size-6" />}
         />
         <BottomNavigationAction
-          // LinkComponent={NavLink}
-          className="gap-y-1 !justify-end !pb-2.5"
-          href="/orders"
+          // classcomponent="gap-y-1 !justify-end !pb-2.5"
+          component={NavLink}
+          to="/orders"
           label="Orders"
           icon={<Storefront className="!size-6" />}
         />
         <BottomNavigationAction
-          // LinkComponent={NavLink}
+          component={NavLink}
           className="gap-y-1 !justify-end !pb-2.5"
-          href="/messages"
+          to="/messages"
           label="Messages"
           icon={<ForumOutlined className="!size-6" />}
         />
         <BottomNavigationAction
-          // LinkComponent={NavLink}
+          component={NavLink}
           className="gap-y-1 !justify-end !pb-2.5"
-          href="/me"
+          to="/me"
           label="You"
           icon={<AccountCircleOutlined className="!size-6" />}
         />
