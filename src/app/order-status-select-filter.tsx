@@ -51,6 +51,7 @@ export default function OrderStatusSelectFilter() {
         multiple
         value={selectedStatus}
         onChange={handleChange}
+        className="pb-1.5"
         // label="Tag"
         // input={<OutlinedInput id="something" label="Tag" />}
         renderValue={(selected) => (
