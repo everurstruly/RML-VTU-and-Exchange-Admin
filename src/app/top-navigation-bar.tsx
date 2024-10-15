@@ -62,19 +62,19 @@ export default function TopNavigationBar(props: Props) {
         component="nav"
         position="fixed"
         color="default"
-        className="h-14 max-w-md mx-auto !left-0 !bg-white !border-b"
-        elevation={1}
+        className="max-w-md mx-auto !left-0 !bg-white border-b !shadow-sm border-x"
+        elevation={0}
       >
         <Toolbar className="gap-x-4">
-          <IconButton
-            color="inherit"
+          <div
             aria-label="open drawer"
-            edge="start"
+            // edge="start"
             onClick={handleDrawerToggle}
+            className="border rounded-lg p-1.5"
             // sx={{ mr: 2, display: { sm: "none" } }}
           >
             <MenuIcon />
-          </IconButton>
+          </div>
 
           <Button
             color="primary"
