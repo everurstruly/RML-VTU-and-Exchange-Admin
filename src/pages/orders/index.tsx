@@ -59,7 +59,7 @@ export default function FullWidthTabs() {
       <PageTitle text="Yours Orders" />
 
       <Box className="py-2">
-        <div className="mb-4 border">
+        <div className="mb-4 border mx-4">
           <Tabs
             value={value}
             onChange={handleChange}
