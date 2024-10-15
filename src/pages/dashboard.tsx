@@ -29,7 +29,7 @@ export default function HomePage() {
           <Card variant="outlined" className="w-full !rounded-lg">
             <CardHeader
               avatar={
-                <div className="size-7 rounded-lg border grid place-content-center">
+                <div className="size-6 rounded-md border grid place-content-center">
                   <FlagOutlined className="!size-4 text-error" />
                 </div>
               }
@@ -39,7 +39,7 @@ export default function HomePage() {
               //   </p>
               // }
               // title="Customers"
-              className="!p-2.5 !pb-2 gap-x-1.5"
+              className="!p-2.5 !pb-0 gap-x-1.5"
               classes={{
                 title: "!text-xs text-zinc-400",
                 action: "flex items-center !self-center",
@@ -48,16 +48,16 @@ export default function HomePage() {
             />
             <CardContent className="!p-3 !py-0">
               <Typography
-                variant="h5"
+                variant="h6"
                 fontWeight={500}
-                className="text-zinc-700"
+                className="text-zinc-700 pt-1.5 pb-.5"
               >
                 200
               </Typography>
             </CardContent>
-            <div className="px-2.5 pt-1.5 pb-2">
+            <div className="px-2.5 pb-2">
               <Typography variant="body2" className="!text-xs !text-zinc-400">
-                Customers
+                Users
               </Typography>
             </div>
           </Card>
@@ -66,25 +66,25 @@ export default function HomePage() {
               // avatar={<StoreOutlined className="!size-4 text-success" />}
               // title="Income"
               avatar={
-                <div className="size-7 rounded-lg border grid place-content-center">
+                <div className="size-6 rounded-md border grid place-content-center">
                   <StoreOutlined className="!size-4 text-success" />
                 </div>
               }
-              className="!p-2.5 !pb-2 gap-x-1.5"
+              className="!p-2.5 !pb-0 gap-x-1.5"
               classes={{ title: "!text-xs text-zinc-400", avatar: "!me-0" }}
             />
             <CardContent className="!p-3 !py-0">
               <Typography
-                variant="h5"
+                variant="h6"
                 fontWeight={500}
-                className="text-zinc-700"
+                className="text-zinc-700 pt-1.5 pb-.5"
               >
                 200
               </Typography>
             </CardContent>
-            <div className="px-2.5 pt-1.5 pb-2">
+            <div className="px-2.5 pb-2">
               <Typography variant="body2" className="!text-xs !text-zinc-400">
-                Income
+                Profits
               </Typography>
             </div>
           </Card>
@@ -93,25 +93,25 @@ export default function HomePage() {
               // avatar={<StarBorderOutlined className="!size-4 text-primary" />}
               // title="Activities"
               avatar={
-                <div className="size-7 rounded-lg border grid place-content-center">
+                <div className="size-6 rounded-md border grid place-content-center">
                   <StarBorderOutlined className="!size-4 text-primary" />
                 </div>
               }
-              className="!p-2.5 !pb-2 gap-x-1.5"
+              className="!p-2.5 !pb-0 gap-x-1.5"
               classes={{ title: "!text-xs text-zinc-400", avatar: "!me-0" }}
             />
             <CardContent className="!p-3 !py-0">
               <Typography
-                variant="h5"
+                variant="h6"
                 fontWeight={500}
-                className="text-zinc-700"
+                className="text-zinc-700 pt-1.5 pb-.5"
               >
                 200
               </Typography>
             </CardContent>
-            <div className="px-2.5 pt-1.5 pb-2">
+            <div className="px-2.5 pb-2">
               <Typography variant="body2" className="!text-xs !text-zinc-400">
-                Activities
+                Trends
               </Typography>
             </div>
           </Card>
