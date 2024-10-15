@@ -4,7 +4,7 @@ import TopNavigationBar from "../app/top-navigation-bar";
 
 export default function AppLayout() {
   return (
-    <div className="max-w-md mx-auto overflow-hidden relative border-2 shadow-md">
+    <div className="max-w-md mx-auto overflow-hidden relative border">
       <TopNavigationBar />
       <Outlet />
       <BottomNavigationBar />
