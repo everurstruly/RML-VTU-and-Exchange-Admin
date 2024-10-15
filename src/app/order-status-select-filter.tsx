@@ -9,6 +9,7 @@ import Checkbox from "@mui/material/Checkbox";
 // import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Chip from "@mui/material/Chip";
+import clsx from "clsx";
 
 const statuses = [
   { title: "Pending", color: "warning" },
@@ -20,7 +21,9 @@ const statuses = [
 
 export default function OrderStatusSelectFilter() {
   //   const theme = useTheme();
-  const [selectedStatus, setSelectedStatus] = React.useState<string[]>([]);
+  const [selectedStatus, setSelectedStatus] = React.useState<string[]>([
+    "Pending",
+  ]);
 
   const handleChange = (event: SelectChangeEvent<typeof selectedStatus>) => {
     const {
@@ -33,17 +36,25 @@ export default function OrderStatusSelectFilter() {
   };
 
   return (
-    <FormControl size="small" fullWidth>
-      <InputLabel id="demo-multiple-checkbox-label">Status</InputLabel>
+    <FormControl variant="standard" size="small" fullWidth>
+      <InputLabel
+        id="demo-multiple-checkbox-label"
+        className={clsx({
+          "!-top-2": selectedStatus.length > 0,
+        })}
+      >
+        Show Orders by Status
+      </InputLabel>
       <Select
         labelId="demo-multiple-checkbox-label"
         id="demo-multiple-checkbox"
         multiple
         value={selectedStatus}
         onChange={handleChange}
-        input={<OutlinedInput id="something" label="Tag" />}
+        // label="Tag"
+        // input={<OutlinedInput id="something" label="Tag" />}
         renderValue={(selected) => (
-          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
             {selected.map((value) => (
               <Chip key={value} label={value} size="small" />
             ))}
@@ -53,7 +64,7 @@ export default function OrderStatusSelectFilter() {
         {statuses.map(({ title }) => (
           <MenuItem key={title} value={title} className="!px-2">
             <Checkbox checked={selectedStatus.includes(title)} />
-            <ListItemText primary={title} className="!text-sm" />
+            <ListItemText primary={title} sx={{ fontSize: ".75rem" }} />
           </MenuItem>
         ))}
       </Select>
