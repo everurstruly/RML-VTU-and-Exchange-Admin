@@ -7,10 +7,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "types": ["node"],
+      "@/*": ["src/*"]
     },
+    "types": ["node"],
     "noUnusedLocals": false,
-    "noUnusedParameters": false,
+    "noUnusedParameters": false
   }
 }
