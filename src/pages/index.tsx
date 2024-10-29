@@ -15,7 +15,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import PageTitle from "../app/page-title";
+import PageTitle from "@/components/page-title";
 
 export default function HomePage() {
   return (

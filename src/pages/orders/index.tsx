@@ -3,8 +3,8 @@ import { useTheme } from "@mui/material/styles";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import GiftCardOrdersTable from "../../app/giftcard-orders-table";
-import CryptoOrdersTable from "../../app/crypto-orders-table";
+import GiftCardOrdersTable from "@/components/giftcard-orders-table";
+import CryptoOrdersTable from "@/components/crypto-orders-table";
 import {
   CurrencyExchangeOutlined,
   Payment,
@@ -12,7 +12,7 @@ import {
   SellOutlined,
 } from "@mui/icons-material";
 import { Fade } from "@mui/material";
-import PageTitle from "../../app/page-title";
+import PageTitle from "@/components/page-title";
 
 interface TabPanelProps {
   children?: React.ReactNode;

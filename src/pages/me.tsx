@@ -1,6 +1,6 @@
 import { Avatar, Box, Button, Stack, Typography } from "@mui/material";
-import PageTitle from "../app/page-title";
-import AccountMenuList from "../app/account-menu-list";
+import PageTitle from "@/components/page-title";
+import AccountMenuList from "@/components/account-menu-list";
 import CurrencyBitcoin from "@mui/icons-material/CurrencyBitcoin";
 import {
   AccountBalanceOutlined,

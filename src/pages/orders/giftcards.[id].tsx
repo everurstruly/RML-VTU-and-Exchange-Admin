@@ -2,10 +2,10 @@ import { Button, Checkbox, FormControlLabel, Stack } from "@mui/material";
 import DynamicStepper, {
   StepItemHandlers,
   StepperState,
-} from "../../app/dynamic-stepper";
-import GiftCardOrderReviewCard from "../../app/giftcard-order-review-card";
-import PageTitle from "../../app/page-title";
-import OrderRejectionReasonsList from "../../app/order-rejection-reasons-list";
+} from "@/components/dynamic-stepper";
+import GiftCardOrderReviewCard from "@/components/giftcard-order-review-card";
+import PageTitle from "@/components/page-title";
+import OrderRejectionReasonsList from "@/components/order-rejection-reasons-list";
 
 const initGeneralSteps = [
   {

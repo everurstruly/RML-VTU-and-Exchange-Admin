@@ -2,9 +2,9 @@ import { Button, Stack } from "@mui/material";
 import DynamicStepper, {
   StepItemHandlers,
   StepperState,
-} from "../../app/dynamic-stepper";
-import GiftCardOrderReviewCard from "../../app/giftcard-order-review-card";
-import PageTitle from "../../app/page-title";
+} from "@/components/dynamic-stepper";
+import GiftCardOrderReviewCard from "@/components/giftcard-order-review-card";
+import PageTitle from "@/components/page-title";
 
 const initGeneralSteps = [
   {
