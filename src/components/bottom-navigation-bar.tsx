@@ -29,7 +29,7 @@ export default function SimpleBottomNavigation() {
         <BottomNavigationAction
           className="gap-y-1 !justify-end !pb-2.5"
           component={NavLink}
-          to="/dashboard"
+          to="/"
           label="Dashboard"
           icon={<DashboardOutlined className="!size-6" />}
         />
