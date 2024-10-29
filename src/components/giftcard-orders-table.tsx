@@ -105,6 +105,11 @@ const GiftCardOrdersTable = () => {
         ),
       },
       {
+        accessorKey: "amount",
+        header: "Amount",
+        size: 25,
+      },
+      {
         accessorFn: () => {
           return (
             <p className="text-xs text-zinc-500">
@@ -114,11 +119,6 @@ const GiftCardOrdersTable = () => {
         },
         header: "Date",
         size: 100,
-      },
-      {
-        accessorKey: "amount",
-        header: "Amount",
-        size: 25,
       },
       {
         accessorKey: "status",
