@@ -34,8 +34,8 @@ export default function SimpleBottomNavigation() {
           icon={<DashboardOutlined className="!size-6" />}
         />
         <BottomNavigationAction
-          // classcomponent="gap-y-1 !justify-end !pb-2.5"
           component={NavLink}
+          className="gap-y-1 !justify-end !pb-2.5"
           to="/orders"
           label="Orders"
           icon={<Storefront className="!size-6" />}
