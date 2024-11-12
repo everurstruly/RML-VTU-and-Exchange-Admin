@@ -1,11 +1,20 @@
 import {
   AccountBalanceWalletOutlined,
+  AddCardOutlined,
   ArrowDropUpRounded,
   ArrowDropUpSharp,
   ArrowRightAlt,
+  AttachMoneyOutlined,
+  CurrencyBitcoinOutlined,
+  CurrencyBitcoinRounded,
+  CurrencyBitcoinSharp,
+  CurrencyRubleOutlined,
   FlagOutlined,
+  MonetizationOnOutlined,
+  MoneyOutlined,
   StarBorderOutlined,
   StoreOutlined,
+  TokenRounded,
 } from "@mui/icons-material";
 import {
   Button,
@@ -13,9 +22,12 @@ import {
   CardContent,
   CardHeader,
   Stack,
+  Link,
   Typography,
 } from "@mui/material";
 import PageTitle from "@/components/page-title";
+import React from "react";
+// import { Link } from "react-router-dom";
 
 export default function HomePage() {
   return (
@@ -23,7 +35,7 @@ export default function HomePage() {
       <PageTitle text="Dashboard" />
 
       <section className="py-4 px-4">
-        <h4 className="text-xs mb-2 text-zinc-500">Statistics</h4>
+        <h4 className="text-sm mb-2 font-medium">Statistics</h4>
 
         <Stack direction="row" spacing={1}>
           <Card variant="outlined" className="w-full !rounded-lg">
@@ -47,16 +59,15 @@ export default function HomePage() {
               }}
             />
             <CardContent className="!p-3 !py-0">
-              <Typography
-                variant="h6"
-                fontWeight={500}
-                className="text-zinc-700 pt-1.5 pb-.5"
-              >
+              <Typography variant="h6" className="text-zinc-700 pt-1.5 pb-.5">
                 200
               </Typography>
             </CardContent>
             <div className="px-2.5 pb-2">
-              <Typography variant="body2" className="!text-xs !text-zinc-400">
+              <Typography
+                variant="body2"
+                className="!text-xs !text-zinc-500 uppercase"
+              >
                 Users
               </Typography>
             </div>
@@ -74,16 +85,15 @@ export default function HomePage() {
               classes={{ title: "!text-xs text-zinc-400", avatar: "!me-0" }}
             />
             <CardContent className="!p-3 !py-0">
-              <Typography
-                variant="h6"
-                fontWeight={500}
-                className="text-zinc-700 pt-1.5 pb-.5"
-              >
+              <Typography variant="h6" className="text-zinc-700 pt-1.5 pb-.5">
                 200
               </Typography>
             </CardContent>
             <div className="px-2.5 pb-2">
-              <Typography variant="body2" className="!text-xs !text-zinc-400">
+              <Typography
+                variant="body2"
+                className="!text-xs !text-zinc-500 uppercase"
+              >
                 Profits
               </Typography>
             </div>
@@ -101,16 +111,15 @@ export default function HomePage() {
               classes={{ title: "!text-xs text-zinc-400", avatar: "!me-0" }}
             />
             <CardContent className="!p-3 !py-0">
-              <Typography
-                variant="h6"
-                fontWeight={500}
-                className="text-zinc-700 pt-1.5 pb-.5"
-              >
+              <Typography variant="h6" className="text-zinc-700 pt-1.5 pb-.5">
                 200
               </Typography>
             </CardContent>
             <div className="px-2.5 pb-2">
-              <Typography variant="body2" className="!text-xs !text-zinc-400">
+              <Typography
+                variant="body2"
+                className="!text-xs !text-zinc-500 uppercase"
+              >
                 Trends
               </Typography>
             </div>
@@ -119,7 +128,7 @@ export default function HomePage() {
       </section>
 
       <section className="py-4 px-4">
-        <h4 className="text-xs mb-2 text-zinc-500">VTU Service Management</h4>
+        <h4 className="text-sm mb-2 font-medium">Top-Up Service</h4>
 
         <Card variant="outlined" className="w-full p-4 !rounded-lg">
           <label className="text-xs mb-1.5 text-zinc-400 inline-flex items-center gap-x-1">
@@ -140,7 +149,7 @@ export default function HomePage() {
             classes={{ endIcon: "!ms-auto" }}
             size="small"
           >
-            Adjust my retail prices
+            Restock Credits
           </Button>
           <Button
             color="inherit"
@@ -150,52 +159,27 @@ export default function HomePage() {
             classes={{ endIcon: "!ms-auto" }}
             size="small"
           >
-            Top-Up and Manage Your Account
-          </Button>
-        </Stack>
-      </section>
-
-      <section className="py-4 px-4">
-        <h4 className="text-xs mb-2 text-zinc-500">
-          Exchange Services Management
-        </h4>
-        <Stack spacing={1}>
-          <Button
-            color="inherit"
-            variant="outlined"
-            className="!rounded-md !px-4 !py-1.5 w-full !justify-normal !border-zinc-300 !text-zinc-500"
-            endIcon={<ArrowRightAlt />}
-            classes={{ endIcon: "!ms-auto" }}
-            size="small"
-          >
-            Gift Cards
-          </Button>
-          <Button
-            color="inherit"
-            variant="outlined"
-            className="!rounded-md !px-4 !py-1.5 w-full !justify-normal !border-zinc-300 !text-zinc-500"
-            endIcon={<ArrowRightAlt />}
-            classes={{ endIcon: "!ms-auto" }}
-            size="small"
-          >
-            Cryptocurrency
+            Update my retail prices
           </Button>
         </Stack>
       </section>
 
       <section className="py-4 px-4">
-        <h4 className="text-xs mb-2 text-zinc-500">Business Managment</h4>
+        <h4 className="text-sm mb-2 font-medium">Exchange Services</h4>
         <Stack spacing={1}>
           <Button
             color="inherit"
+            href="/services/giftcard"
             variant="outlined"
             className="!rounded-md !px-4 !py-1.5 w-full !justify-normal !border-zinc-300 !text-zinc-500"
             endIcon={<ArrowRightAlt />}
             classes={{ endIcon: "!ms-auto" }}
             size="small"
+            startIcon={<AddCardOutlined />}
           >
-            Staffs
+            Gift Card List and Rates
           </Button>
+
           <Button
             color="inherit"
             variant="outlined"
@@ -203,8 +187,9 @@ export default function HomePage() {
             endIcon={<ArrowRightAlt />}
             classes={{ endIcon: "!ms-auto" }}
             size="small"
+            startIcon={<AttachMoneyOutlined />}
           >
-            Customers
+            Crypto Rates
           </Button>
         </Stack>
       </section>
