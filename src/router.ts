@@ -9,7 +9,10 @@ export type Path =
   | `/me`
   | `/orders`
   | `/orders/crypto/:id`
-  | `/orders/giftcards/:id`;
+  | `/orders/giftcards/:id`
+  | `/services/giftcard`
+  | `/services/giftcard/card-action`
+  | `/services/giftcard/rates`;
 
 export type Params = {
   "/orders/crypto/:id": { id: string };
