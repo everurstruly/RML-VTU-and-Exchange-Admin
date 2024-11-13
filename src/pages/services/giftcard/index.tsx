@@ -28,7 +28,7 @@ export default function GiftcardPage() {
     <main className="min-h-screen relative pb-12 pt-6">
       <PageTitle text="Gift Card Services - List" />
 
-      <section className="px-4 py-6">
+      <section className="px-4 pt-6 pb-20">
         <div className="flex flex-col gap-y-2 mb-6">
           <TextField
             label="Search"
@@ -69,7 +69,7 @@ export default function GiftcardPage() {
           </div>
         </div>
 
-        <ul className="flex flex-col gap-4 pb-6">
+        <ul className="flex flex-col gap-5 mb-8">
           {[1, 2, 3, 4, 5, 6, 8, 9, 10, 11].map((item) => {
             return (
               <li>
