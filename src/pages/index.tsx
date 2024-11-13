@@ -40,94 +40,46 @@ export default function HomePage() {
       <section className="py-4 px-4">
         <h4 className="text-sm mb-2 font-medium">Statistics</h4>
 
-        <Stack direction="row" spacing={1}>
-          <Card variant="outlined" className="w-full !rounded-lg">
-            <CardHeader
-              avatar={
-                <div className="size-6 rounded-md border grid place-content-center">
-                  <FlagOutlined className="!size-4 text-error" />
-                </div>
-              }
-              // action={
-              //   <p className="inline-flex items-center text-xs px-3 text-zinc-500 font-medium">
-              //     <ArrowDropUpRounded className="text-success" /> 22%
-              //   </p>
-              // }
-              // title="Customers"
-              className="!p-2.5 !pb-0 gap-x-1.5"
-              classes={{
-                title: "!text-xs text-zinc-400",
-                action: "flex items-center !self-center",
-                avatar: "!me-0",
-              }}
-            />
-            <CardContent className="!p-3 !py-0">
-              <Typography variant="h6" className="text-zinc-700 pt-1.5 pb-.5">
+        <div className="flex flex-wrap gap-4">
+          <article className="border rounded-lg p-2 grow gap-y-1.5 flex flex-col">
+            <h4 className="!text-xs text-zinc-500 font-medium">Profits</h4>
+
+            <div className="flex items-center gap-x-2">
+              <div className="size-6 rounded-md border grid place-content-center">
+                <StoreOutlined className="!size-4 text-success" />
+              </div>
+              <Typography variant="h6" className="text-zinc-800">
                 200
               </Typography>
-            </CardContent>
-            <div className="px-2.5 pb-2">
-              <Typography
-                variant="body2"
-                className="!text-xs !text-zinc-500 uppercase"
-              >
-                Users
-              </Typography>
             </div>
-          </Card>
-          <Card variant="outlined" className="w-full !rounded-lg">
-            <CardHeader
-              // avatar={<StoreOutlined className="!size-4 text-success" />}
-              // title="Income"
-              avatar={
-                <div className="size-6 rounded-md border grid place-content-center">
-                  <StoreOutlined className="!size-4 text-success" />
-                </div>
-              }
-              className="!p-2.5 !pb-0 gap-x-1.5"
-              classes={{ title: "!text-xs text-zinc-400", avatar: "!me-0" }}
-            />
-            <CardContent className="!p-3 !py-0">
-              <Typography variant="h6" className="text-zinc-700 pt-1.5 pb-.5">
+          </article>
+
+          <article className="border rounded-lg p-2 grow gap-y-1.5 flex flex-col">
+            <h4 className="!text-xs text-zinc-500 font-medium">Activities</h4>
+
+            <div className="flex items-center gap-x-2">
+              <div className="size-6 rounded-md border grid place-content-center">
+                <StarBorderOutlined className="!size-4 text-primary" />
+              </div>
+              <Typography variant="h6" className="text-zinc-800">
                 200
               </Typography>
-            </CardContent>
-            <div className="px-2.5 pb-2">
-              <Typography
-                variant="body2"
-                className="!text-xs !text-zinc-500 uppercase"
-              >
-                Profits
-              </Typography>
             </div>
-          </Card>
-          <Card variant="outlined" className="w-full !rounded-lg">
-            <CardHeader
-              // avatar={<StarBorderOutlined className="!size-4 text-primary" />}
-              // title="Activities"
-              avatar={
-                <div className="size-6 rounded-md border grid place-content-center">
-                  <StarBorderOutlined className="!size-4 text-primary" />
-                </div>
-              }
-              className="!p-2.5 !pb-0 gap-x-1.5"
-              classes={{ title: "!text-xs text-zinc-400", avatar: "!me-0" }}
-            />
-            <CardContent className="!p-3 !py-0">
-              <Typography variant="h6" className="text-zinc-700 pt-1.5 pb-.5">
+          </article>
+
+          <article className="border rounded-lg p-2 grow gap-y-1.5 flex flex-col">
+            <h4 className="!text-xs text-zinc-500 font-medium">Customers</h4>
+
+            <div className="flex items-center gap-x-2">
+              <div className="size-6 rounded-md border grid place-content-center">
+                <FlagOutlined className="!size-4 text-error" />
+              </div>
+              <Typography variant="h6" className="text-zinc-800">
                 200
               </Typography>
-            </CardContent>
-            <div className="px-2.5 pb-2">
-              <Typography
-                variant="body2"
-                className="!text-xs !text-zinc-500 uppercase"
-              >
-                Trends
-              </Typography>
             </div>
-          </Card>
-        </Stack>
+          </article>
+        </div>
       </section>
 
       <section className="py-4 px-4">
