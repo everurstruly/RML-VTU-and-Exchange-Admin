@@ -2,34 +2,26 @@ import * as React from "react";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { ListItemIcon, ListItemText } from "@mui/material";
+import { ListItemIcon, Divider } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import {
   DeleteOutline,
   DoDisturbOutlined,
-  EditOutlined,
-  FormatListBulletedOutlined,
-  HideSourceOutlined,
-  SellOutlined,
+  LabelOutlined,
   VisibilityOffOutlined,
 } from "@mui/icons-material";
 import clsx from "clsx";
 
 const options = [
   {
-    label: "Deactive",
+    label: "Deactivate",
     color: "action",
-    Icon: (props: any) => <HideSourceOutlined {...props} />,
+    Icon: (props: any) => <DoDisturbOutlined {...props} />,
   },
   {
-    label: "Delete",
-    color: "error",
-    Icon: (props: any) => <DeleteOutline {...props} />,
-  },
-  {
-    label: "View Orders",
+    label: "View Pending Orders",
     color: "primary",
-    Icon: (props: any) => <SellOutlined {...props} />,
+    Icon: (props: any) => <LabelOutlined {...props} />,
   },
 ];
 
@@ -55,7 +47,6 @@ export default function GiftcardRateItemActionButton() {
         aria-expanded={open ? "true" : undefined}
         aria-haspopup="true"
         onClick={handleClick}
-        size="small"
       >
         <MoreVertIcon />
       </IconButton>
@@ -77,21 +68,24 @@ export default function GiftcardRateItemActionButton() {
           },
         }}
       >
-        {options.map(({ Icon, label, color }) => (
-          <MenuItem dense key={label} onClick={handleClose}>
-            <ListItemIcon>
-              <Icon fontSize="small" color={color} />
-            </ListItemIcon>
-            <span
-              className={clsx({
-                "text-primary": color === "primary",
-                "text-gray-500": color === "action",
-                "text-red-800": color === "error",
-              })}
-            >
-              {label}
-            </span>
-          </MenuItem>
+        {options.map(({ Icon, label, color }, index) => (
+          <div key={`${label}#${index}`}>
+            <MenuItem onClick={handleClose}>
+              <ListItemIcon>
+                <Icon fontSize="small" color={color} />
+              </ListItemIcon>
+              <span
+                className={clsx({
+                  "text-primary": color === "primary",
+                  "text-gray-500": color === "action",
+                  "text-red-800": color === "error",
+                })}
+              >
+                {label}
+              </span>
+            </MenuItem>
+            {label !== "Delete" && <Divider className="!m-0" />}
+          </div>
         ))}
       </Menu>
     </div>
