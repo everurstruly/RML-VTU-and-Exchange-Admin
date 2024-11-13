@@ -9,8 +9,10 @@ import {
   CardActions,
   Menu,
   MenuItem,
+  Divider,
 } from "@mui/material";
 import PageTitle from "@/components/page-title";
+import GiftcardListItemActionButton from "./card-action";
 import {
   AddCircleOutlined,
   AddOutlined,
@@ -24,7 +26,7 @@ import {
 export default function GiftcardPage() {
   return (
     <main className="min-h-screen relative">
-      <PageTitle text="Gift Card Services" />
+      <PageTitle text="Gift Card Services - List" />
 
       <section className="px-4 py-6">
         <div className="flex flex-col gap-y-2 mb-6">
@@ -74,26 +76,34 @@ export default function GiftcardPage() {
                 <Card variant="elevation" className="border">
                   <CardHeader
                     avatar={<div className="border h-10 w-14 rounded-md"></div>}
-                    action={
-                      <>
-                        <IconButton aria-label="settings">
-                          <MoreVertOutlined />
-                        </IconButton>
-                        <Menu id="long-menu" open={false}>
-                          {["Edit", "Deactivate", "Delete"].map((option) => (
-                            <MenuItem key={option}>{option}</MenuItem>
-                          ))}
-                        </Menu>
-                      </>
-                    }
+                    action={<GiftcardListItemActionButton />}
                     title="Amazon"
-                    subheader="September 14, 2016"
+                    subheader={
+                      <p className="truncate text-xs text-zinc-400 max-w-[90%]">
+                        {["Fresh", "Trending", "Best Reates"].map(
+                          (tag, index) => {
+                            if (index === 0) return `${tag}`;
+                            return `, ${tag}`;
+                          }
+                        )}
+                      </p>
+                    }
                   />
-                  <CardActions className="flex gap-x-4">
-                    <Button size="small" fullWidth variant="outlined">
+                  <Divider />
+                  <CardActions className="flex justify-between">
+                    <Button
+                      fullWidth
+                      size="small"
+                      href="/orders?service=giftcards,brand=yoyo"
+                    >
                       View Orders
                     </Button>
-                    <Button size="small" fullWidth variant="outlined">
+
+                    <Button
+                      fullWidth
+                      size="small"
+                      href="/services/giftcard/rates"
+                    >
                       Edit Rates
                     </Button>
                   </CardActions>
