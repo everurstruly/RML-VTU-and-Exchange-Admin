@@ -112,12 +112,14 @@ export default function GiftcardPage() {
       </section>
 
       <Fab
-        size="medium"
+        size="large"
         color="primary"
         aria-label="add"
-        sx={{ position: "fixed", bottom: "5rem", right: "1rem" }}
+        // variant="extended"
+        sx={{ position: "fixed", bottom: "6rem", right: "2rem" }}
       >
-        <AddOutlined />
+        <AddOutlined className="me-2.." />
+        {/* New */}
       </Fab>
     </main>
   );
