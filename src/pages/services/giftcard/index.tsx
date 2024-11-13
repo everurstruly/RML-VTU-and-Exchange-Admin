@@ -66,7 +66,7 @@ export default function GiftcardPage() {
         <ul className="flex flex-col gap-5 mb-8">
           {[1, 2, 3, 4, 5, 6, 8, 9, 10, 11].map((item) => {
             return (
-              <li>
+              <li key={item}>
                 <Card variant="elevation" className="border">
                   <CardHeader
                     avatar={<div className="border h-10 w-14 rounded-md"></div>}
