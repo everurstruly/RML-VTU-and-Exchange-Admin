@@ -18,7 +18,7 @@ import {
 
 export default function AccountPage() {
   return (
-    <div className="pt-4 pb-40">
+    <main className="min-h-screen relative pb-32 pt-6">
       <PageTitle text="Your Account" />
       
       <Stack spacing={3} className="px-4 py-4">
@@ -80,6 +80,6 @@ export default function AccountPage() {
           Sign Out
         </Button>
       </Box>
-    </div>
+    </main>
   );
 }

@@ -30,7 +30,7 @@ import {
 
 export default function GiftcardRatesPage() {
   return (
-    <main className="min-h-screen relative pb-12 pt-6">
+    <main className="min-h-screen relative pb-32 pt-6">
       <PageTitle text="Gift Card Services - Rates" />
 
       <section className="px-4 pt-6 pb-20">

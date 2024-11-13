@@ -55,7 +55,7 @@ export default function FullWidthTabs() {
   };
 
   return (
-    <main className="min-h-screen relative pb-12 pt-6">
+    <main className="min-h-screen relative pb-32 pt-6">
       <PageTitle text="Yours Orders" />
 
       <Box className="py-2">

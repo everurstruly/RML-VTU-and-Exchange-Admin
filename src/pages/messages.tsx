@@ -5,7 +5,7 @@ export default function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <main className="min-h-screen relative pb-12 pt-6">
+    <main className="min-h-screen relative pb-32 pt-6">
       <PageTitle text="Messages" />
 
       <section className="p-4 bg-white mx-auto">

@@ -34,7 +34,7 @@ import React from "react";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen relative pb-12 pt-6">
+    <main className="min-h-screen relative pb-32 pt-6">
       <PageTitle text="Dashboard" />
 
       <section className="py-4 px-4">
