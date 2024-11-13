@@ -55,11 +55,11 @@ export default function FullWidthTabs() {
   };
 
   return (
-    <div className="pt-4 pb-20">
+    <main className="min-h-screen relative pb-12 pt-6">
       <PageTitle text="Yours Orders" />
 
       <Box className="py-2">
-        <div className="mb-4 border mx-4">
+        <div className="mb-4 border-b mx-4">
           <Tabs
             value={value}
             onChange={handleChange}
@@ -70,13 +70,13 @@ export default function FullWidthTabs() {
             <Tab
               label="GiftCard"
               // icon={<PaymentOutlined className="!size-4" />}
-              sx={{ fontSize: ".813rem", fontWeight: 600,}}
+              sx={{ fontSize: ".813rem", fontWeight: 600 }}
               {...a11yProps(0)}
             />
             <Tab
               label="Crypto"
               // icon={<CurrencyExchangeOutlined className="!size-4" />}
-              sx={{ fontSize: ".813rem", fontWeight: 600,}}
+              sx={{ fontSize: ".813rem", fontWeight: 600 }}
               {...a11yProps(0)}
             />
           </Tabs>
@@ -88,6 +88,6 @@ export default function FullWidthTabs() {
           <CryptoOrdersTable />
         </TabPanel>
       </Box>
-    </div>
+    </main>
   );
 }

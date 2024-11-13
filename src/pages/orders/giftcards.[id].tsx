@@ -64,7 +64,7 @@ const initGeneralSteps = [
 
 export default function GiftcardOrdersItemPage() {
   return (
-    <>
+    <main className="min-h-screen relative pb-12 pt-6">
       <PageTitle text="Order Processing - Crypto" />
       <div className="py-4 px-4">
         <DynamicStepper
@@ -234,7 +234,7 @@ export default function GiftcardOrdersItemPage() {
           ]}
         />
       </div>
-    </>
+    </main>
   );
 
   // Continue or Back+Next
