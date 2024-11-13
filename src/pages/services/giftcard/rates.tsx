@@ -129,7 +129,7 @@ export default function GiftcardRatesPage() {
 
                   <CardActions className="flex justify-end !pt-0">
                     <Button size="medium" fullWidth color="error">
-                      Deactivate
+                      Delete
                     </Button>
                     <Button size="medium" fullWidth>
                       Edit
