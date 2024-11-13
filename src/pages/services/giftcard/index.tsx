@@ -60,12 +60,6 @@ export default function GiftcardPage() {
             >
               Sort
             </Button>
-
-            {/* <ul className="flex items-center gap-4 overflow-x-hidden flex-nowrap text-xs text-zinc-600">
-              {[1, 2, 3, 4, 5, 6, 8, 9, 10, 11].map((item) => {
-                return <li>hello</li>;
-              })}
-            </ul> */}
           </div>
         </div>
 
