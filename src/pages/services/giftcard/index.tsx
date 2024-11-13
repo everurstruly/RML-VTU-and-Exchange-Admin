@@ -40,7 +40,7 @@ export default function GiftcardPage() {
 
           <div className="flex gap-x-2">
             <Button
-              size="small"
+              size="medium"
               variant="outlined"
               color="primary"
               sx={{ borderRadius: "2px" }}
@@ -51,7 +51,7 @@ export default function GiftcardPage() {
             </Button>
 
             <Button
-              size="small"
+              size="medium"
               variant="outlined"
               color="primary"
               sx={{ borderRadius: "2px" }}
@@ -67,13 +67,16 @@ export default function GiftcardPage() {
           {[1, 2, 3, 4, 5, 6, 8, 9, 10, 11].map((item) => {
             return (
               <li key={item}>
-                <Card variant="elevation" className="border">
+                <Card variant="outlined">
                   <CardHeader
-                    avatar={<div className="border h-10 w-14 rounded-md"></div>}
+                    avatar={
+                      <div className="border h-10 w-14 rounded-sm bg-zinc-50"></div>
+                    }
                     action={<GiftcardListItemActionButton />}
                     title="Amazon"
+                    classes={{ title: "!font-medium" }}
                     subheader={
-                      <p className="truncate text-xs text-zinc-400 max-w-[90%]">
+                      <p className="truncate text-xs text-zinc-400 font-light max-w-[90%]">
                         {["Fresh", "Trending", "Best Reates"].map(
                           (tag, index) => {
                             if (index === 0) return `${tag}`;
