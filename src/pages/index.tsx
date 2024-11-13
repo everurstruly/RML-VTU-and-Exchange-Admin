@@ -3,6 +3,7 @@ import {
   AddCardOutlined,
   ArrowDropUpRounded,
   ArrowDropUpSharp,
+  ArrowOutwardOutlined,
   ArrowRightAlt,
   AttachMoneyOutlined,
   CurrencyBitcoinOutlined,
@@ -24,6 +25,8 @@ import {
   Stack,
   Link,
   Typography,
+  CardActions,
+  CardActionArea,
 } from "@mui/material";
 import PageTitle from "@/components/page-title";
 import React from "react";
@@ -31,7 +34,7 @@ import React from "react";
 
 export default function HomePage() {
   return (
-    <div className="pt-4 pb-40">
+    <main className="min-h-screen relative pb-12 pt-6">
       <PageTitle text="Dashboard" />
 
       <section className="py-4 px-4">
@@ -166,21 +169,48 @@ export default function HomePage() {
 
       <section className="py-4 px-4">
         <h4 className="text-sm mb-2 font-medium">Exchange Services</h4>
-        <Stack spacing={1}>
-          <Button
-            color="inherit"
-            href="/services/giftcard"
-            variant="outlined"
-            className="!rounded-md !px-4 !py-1.5 w-full !justify-normal !border-zinc-300 !text-zinc-500"
-            endIcon={<ArrowRightAlt />}
-            classes={{ endIcon: "!ms-auto" }}
-            size="small"
-            startIcon={<AddCardOutlined />}
-          >
-            Gift Card List and Rates
-          </Button>
+        <Stack spacing={4}>
+          <Stack spacing={1}>
+            <Card variant="outlined" sx={{ borderRadius: "4px" }}>
+              <CardActionArea
+                sx={{ display: "flex" }}
+                href="/services/giftcard"
+              >
+                <CardContent>
+                  <Typography
+                    variant="h6"
+                    component="h4"
+                    mb={0.5}
+                    pt={0}
+                    className="text-zinc-700 pt-1.5 pb-.5"
+                  >
+                    GIFT CARDS
+                  </Typography>
 
-          <Button
+                  <Typography variant="body2" className="text-gray-500">
+                    Manage Your List of Cards and their Exchange Rates
+                  </Typography>
+                </CardContent>
+                <Button>
+                  <ArrowOutwardOutlined />
+                </Button>
+              </CardActionArea>
+            </Card>
+            <Button
+              color="inherit"
+              href="/services/giftcard"
+              variant="outlined"
+              className="!rounded-md !px-4 !py-1.5 w-full !justify-normal !border-zinc-300 !text-zinc-500"
+              endIcon={<ArrowRightAlt />}
+              classes={{ endIcon: "!ms-auto" }}
+              size="small"
+              startIcon={<AddCardOutlined />}
+            >
+              Gift Card List and Rates
+            </Button>
+          </Stack>
+
+          {/* <Button
             color="inherit"
             variant="outlined"
             className="!rounded-md !px-4 !py-1.5 w-full !justify-normal !border-zinc-300 !text-zinc-500"
@@ -190,9 +220,9 @@ export default function HomePage() {
             startIcon={<AttachMoneyOutlined />}
           >
             Crypto Rates
-          </Button>
+          </Button> */}
         </Stack>
       </section>
-    </div>
+    </main>
   );
 }
