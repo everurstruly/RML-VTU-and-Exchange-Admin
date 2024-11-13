@@ -12,7 +12,7 @@ import {
   Divider,
 } from "@mui/material";
 import PageTitle from "@/components/page-title";
-import GiftcardListItemActionButton from "./card-action";
+import GiftcardListItemActionButton from "@/components/giftcard/card-action";
 import {
   AddCircleOutlined,
   AddOutlined,
