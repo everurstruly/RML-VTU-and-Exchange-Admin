@@ -20,6 +20,7 @@ export default function AccountPage() {
   return (
     <div className="pt-4 pb-40">
       <PageTitle text="Your Account" />
+      
       <Stack spacing={3} className="px-4 py-4">
         <Box className="p-4 border rounded-xl">
           <div className="flex items-center gap-x-4">
