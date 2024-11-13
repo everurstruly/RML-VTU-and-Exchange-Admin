@@ -2,7 +2,7 @@ import * as React from "react";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { ListItemIcon, ListItemText } from "@mui/material";
+import { ListItemIcon, Divider } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import {
   DeleteOutline,
@@ -73,21 +73,24 @@ export default function GiftcardListItemActionButton() {
           },
         }}
       >
-        {options.map(({ Icon, label, color }) => (
-          <MenuItem dense key={label} onClick={handleClose}>
-            <ListItemIcon>
-              <Icon fontSize="small" color={color} />
-            </ListItemIcon>
-            <span
-              className={clsx({
-                "text-primary": color === "primary",
-                "text-gray-500": color === "action",
-                "text-red-800": color === "error",
-              })}
-            >
-              {label}
-            </span>
-          </MenuItem>
+        {options.map(({ Icon, label, color }, index) => (
+          <div key={`${label}#${index}`}>
+            <MenuItem onClick={handleClose}>
+              <ListItemIcon>
+                <Icon fontSize="small" color={color} />
+              </ListItemIcon>
+              <span
+                className={clsx({
+                  "text-primary": color === "primary",
+                  "text-gray-500": color === "action",
+                  "text-red-800": color === "error",
+                })}
+              >
+                {label}
+              </span>
+            </MenuItem>
+            {label !== "Delete" && <Divider className="!m-0" />}
+          </div>
         ))}
       </Menu>
     </div>
