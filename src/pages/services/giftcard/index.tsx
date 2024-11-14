@@ -9,13 +9,22 @@ import {
   CardActions,
   Menu,
   MenuItem,
+  SwipeableDrawer,
+  Box,
   Divider,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
 } from "@mui/material";
 import PageTitle from "@/components/page-title";
 import GiftcardListItemActionButton from "@/components/giftcard/card-action";
 import {
   AddCircleOutlined,
   AddOutlined,
+  AddPhotoAlternateOutlined,
+  ArrowRightAltOutlined,
   FilterAltOutlined,
   FilterListOutlined,
   Image,
@@ -24,6 +33,23 @@ import {
 } from "@mui/icons-material";
 
 export default function GiftcardPage() {
+  const [editFormOpened, setEditFormOpened] = React.useState(false);
+
+  const toggleEditFormVisibility = (
+    event: React.KeyboardEvent | React.MouseEvent
+  ) => {
+    if (
+      event &&
+      event.type === "keydown" &&
+      ((event as React.KeyboardEvent).key === "Tab" ||
+        (event as React.KeyboardEvent).key === "Shift")
+    ) {
+      return;
+    }
+
+    setEditFormOpened((visible) => !visible);
+  };
+
   return (
     <main className="min-h-screen relative pb-32 pt-6">
       <PageTitle text="Gift Card Services - List" />
@@ -111,10 +137,60 @@ export default function GiftcardPage() {
         </ul>
       </section>
 
+      <SwipeableDrawer
+        anchor="bottom"
+        open={editFormOpened}
+        onClose={() => setEditFormOpened(false)}
+        onOpen={() => setEditFormOpened(true)}
+      >
+        <Box sx={{ width: "100%", padding: "1rem", backgroundColor: "#fff" }}>
+          <h2 className="text-lg font-semibold mb-6">
+            Add New Gift Card Service
+          </h2>
+
+          <div className="flex flex-col gap-y-4 mb-6">
+            <TextField
+              label="Card Title"
+              // variant="standard"
+              size="medium"
+              fullWidth
+              className="mt-4"
+            />
+
+            <Button
+              size="large"
+              component="label"
+              fullWidth
+              role={undefined}
+              variant="outlined"
+              tabIndex={-1}
+              classes={{ root: "min-h-[5rem] !border-default" }}
+              startIcon={<AddPhotoAlternateOutlined />}
+            >
+              Upload Cover Image
+              <input type="file" className="hidden" aria-label="hidden" />
+            </Button>
+          </div>
+
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            fullWidth
+            className="mt-4"
+            endIcon={<ArrowRightAltOutlined />}
+            onClick={() => setEditFormOpened(false)}
+          >
+            Next: Add Exchange Rates
+          </Button>
+        </Box>
+      </SwipeableDrawer>
+
       <Fab
         size="large"
         color="primary"
         aria-label="add"
+        onClick={() => setEditFormOpened(true)}
         // variant="extended"
         sx={{ position: "fixed", bottom: "6rem", right: "2rem" }}
       >
