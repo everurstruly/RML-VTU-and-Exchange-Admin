@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Theme, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
+import { ManageSearchOutlined } from "@mui/icons-material";
 import { Button } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -46,12 +47,20 @@ export default function RateListBrandSelectBox() {
 
   return (
     <div className="border rounded-md px-4 py-2.5 flex items-center justify-between">
-      <h4 className="uppercase text-lg font-medium leading-none">Amazon</h4>
+      <div className="flex gap-x-2 items-center">
+        <ManageSearchOutlined className="!size-7 !mb-1" />
+        <h4 className="uppercase text-lg font-medium leading-none">Amazon</h4>
+      </div>
       <div className="flex gap-x-6 items-center">
         <Button variant="text" size="small" color="primary" disabled>
           Compare
         </Button>
-        <Button variant="text" size="small" color="success" href="/services/giftcard">
+        <Button
+          variant="text"
+          size="small"
+          color="success"
+          href="/services/giftcard"
+        >
           Change
         </Button>
       </div>
