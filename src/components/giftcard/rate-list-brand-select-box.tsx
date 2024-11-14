@@ -58,7 +58,7 @@ export default function RateListBrandSelectBox() {
         <Button
           variant="text"
           size="small"
-          color="success"
+          color="primary"
           href="/services/giftcard"
         >
           Change
