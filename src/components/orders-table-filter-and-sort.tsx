@@ -1,3 +1,4 @@
+import React from "react";
 import { IconButton, Stack } from "@mui/material";
 import OrderStatusSelectFilter from "./order-status-select-filter";
 import { FilterAlt } from "@mui/icons-material";
@@ -12,6 +13,7 @@ export default function OrdersTableFilterAndSort({ table }: { table: any }) {
     <Stack className="py-2 px-4" spacing={1.5}>
       <div className="flex items-center gap-x-3">
         <OrderStatusSelectFilter />
+
         <IconButton
           sx={{
             padding: ".375rem",
@@ -22,8 +24,11 @@ export default function OrdersTableFilterAndSort({ table }: { table: any }) {
           <FilterAlt className="text-zinc-500" />
         </IconButton>
       </div>
+
       <div className="flex items-end gap-x-2">
-        <MRT_GlobalFilterTextField table={table} />
+        {/* FIX: make the wrapper element width 100% */}
+        <MRT_GlobalFilterTextField table={table}  />
+        
         {/* <div className="flex items-end gap-x-1.5">
           <TextField
             id="standard-basic"
