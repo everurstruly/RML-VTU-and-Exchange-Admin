@@ -111,11 +111,7 @@ const GiftCardOrdersTable = () => {
       },
       {
         accessorFn: () => {
-          return (
-            <p className="text-xs text-zinc-500">
-              Today <span className="block">5pm</span>
-            </p>
-          );
+          return <p className="text-xs text-zinc-500">Today at 5pm</p>;
         },
         header: "Date",
         size: 100,
