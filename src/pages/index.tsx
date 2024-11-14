@@ -1,6 +1,6 @@
 import {
   AccountBalanceWalletOutlined,
-  AddCardOutlined,
+  TagOutlined,
   ArrowDropUpRounded,
   ArrowDropUpSharp,
   ArrowOutwardOutlined,
@@ -143,15 +143,15 @@ export default function HomePage() {
             </Card>
             <Button
               color="inherit"
-              href="/services/giftcard"
+              // href="/services/giftcard/tags"
               variant="outlined"
               className="!rounded-md !px-4 !py-1.5 w-full !justify-normal !border-zinc-300 !text-zinc-500"
               endIcon={<ArrowRightAlt />}
               classes={{ endIcon: "!ms-auto" }}
               size="small"
-              startIcon={<AddCardOutlined />}
+              startIcon={<TagOutlined />}
             >
-              List and Rates
+              Manage Tags
             </Button>
           </Stack>
 
