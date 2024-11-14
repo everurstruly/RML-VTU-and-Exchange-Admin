@@ -170,6 +170,7 @@ const GiftCardOrdersTable = () => {
     enableColumnActions: false,
     enableColumnFilters: false,
     initialState: {
+      density: "comfortable",
       showGlobalFilter: true,
       columnVisibility: { status: false, region: false, Customer: false },
       // pagination: {
