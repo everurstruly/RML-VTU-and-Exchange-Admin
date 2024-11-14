@@ -59,13 +59,25 @@ export default function GiftcardPage() {
 
       <section className="px-4 pt-6 pb-20">
         <div className="flex flex-col gap-y-2 mb-6">
-          <TextField
-            label="Search"
-            variant="outlined"
-            size="small"
-            placeholder="Search Card Title"
-            fullWidth
-          />
+          <div className="flex gap-x-4 items-center">
+            <TextField
+              label="Search"
+              variant="outlined"
+              size="small"
+              placeholder="Search Card Title"
+              fullWidth
+            />
+            <Button
+              variant="contained"
+              size="medium"
+              className="text-nowrap shrink-0"
+              startIcon={<AddOutlined />}
+              onClick={() => setEditFormOpened(true)}
+              // href="/services/giftcard/new"
+            >
+              New
+            </Button>
+          </div>
 
           <div className="flex gap-x-2">
             <Button
@@ -236,18 +248,6 @@ export default function GiftcardPage() {
           </Button>
         </Box>
       </SwipeableDrawer>
-
-      <Fab
-        size="large"
-        color="primary"
-        aria-label="add"
-        onClick={() => setEditFormOpened(true)}
-        // variant="extended"
-        sx={{ position: "fixed", bottom: "6rem", right: "2rem" }}
-      >
-        <AddOutlined className="me-2.." />
-        {/* New */}
-      </Fab>
     </main>
   );
 }
