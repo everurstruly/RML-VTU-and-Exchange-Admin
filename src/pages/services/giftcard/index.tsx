@@ -170,7 +170,6 @@ export default function GiftcardPage() {
             </Button>
             <TextField
               label="Card Title"
-              // variant="standard"
               size="medium"
               fullWidth
               className="mt-4"
@@ -238,20 +237,6 @@ export default function GiftcardPage() {
                 </Button>
               </div>
             </div>
-
-            <Button
-              size="large"
-              component="label"
-              fullWidth
-              role={undefined}
-              variant="outlined"
-              tabIndex={-1}
-              classes={{ root: "min-h-[5rem] !border-default" }}
-              startIcon={<AddPhotoAlternateOutlined />}
-            >
-              Upload Cover Image
-              <input type="file" className="hidden" aria-label="hidden" />
-            </Button>
           </div>
 
           <Button
