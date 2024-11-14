@@ -19,6 +19,12 @@ const statuses = [
   { title: "Rejected", color: "danger" },
 ];
 
+const statuesToColor = statuses.reduce((mappedForm, { title, color }) => {
+  const mappedForm_ = { ...mappedForm };
+  mappedForm_[title] = color;
+  return mappedForm_;
+}, {});
+
 export default function OrderStatusSelectFilter() {
   //   const theme = useTheme();
   const [selectedStatus, setSelectedStatus] = React.useState<string[]>([
@@ -45,27 +51,44 @@ export default function OrderStatusSelectFilter() {
       >
         Show Orders by Status
       </InputLabel>
+
       <Select
         labelId="demo-multiple-checkbox-label"
         id="demo-multiple-checkbox"
         multiple
         value={selectedStatus}
         onChange={handleChange}
-        className="pb-1.5"
-        // label="Tag"
-        // input={<OutlinedInput id="something" label="Tag" />}
+        label="Tag"
+        // input={<OutlinedInput id="something" label="Show Orders by Status" />}
+        className="!pb-1.5"
         renderValue={(selected) => (
-          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
+          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
             {selected.map((value) => (
-              <Chip key={value} label={value} size="small" />
+              <Chip
+                key={value}
+                label={value.toUpperCase()}
+                // variant="outlined"
+                color={statuesToColor[value]}
+                size="medium"
+                className="!rounded-md !px-1"
+              />
             ))}
           </Box>
         )}
       >
         {statuses.map(({ title }) => (
-          <MenuItem key={title} value={title} className="!px-2">
-            <Checkbox checked={selectedStatus.includes(title)} />
-            <ListItemText primary={title} sx={{ fontSize: ".75rem" }} />
+          <MenuItem dense key={title} value={title} className="!px-2">
+            <Checkbox
+              checked={selectedStatus.includes(title)}
+              color={statuesToColor[title]}
+            />
+            <ListItemText
+              primary={title}
+              sx={{ fontSize: ".75rem" }}
+              className={clsx({
+                [`text-${statuesToColor[title]}`]: true,
+              })}
+            />
           </MenuItem>
         ))}
       </Select>
