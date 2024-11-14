@@ -128,12 +128,12 @@ export default function HomePage() {
                 href="/services/giftcard"
               >
                 <CardContent>
-                  <Typography variant="h6" pt={0} className="pt-1.5 pb-.5">
+                  <Typography variant="h6" pt={0} className="pt-1.5 pb-1">
                     GIFT CARDS
                   </Typography>
 
-                  <Typography variant="caption" className="text-gray-500">
-                    Manage Your List of Cards and their Exchange Rates
+                  <Typography variant="body2" className="text-gray-500 !leading-tight">
+                    Manage your list and exchange rates
                   </Typography>
                 </CardContent>
                 <Button>
