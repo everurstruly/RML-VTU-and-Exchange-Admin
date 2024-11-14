@@ -168,74 +168,58 @@ export default function GiftcardPage() {
               <div>Upload Cover Image</div>
               <input type="file" className="hidden" aria-label="hidden" />
             </Button>
+
             <TextField
               label="Card Title"
               size="medium"
+              variant="outlined"
               fullWidth
-              className="mt-4"
             />
 
-            <div className="border p-3 border-gray-300">
-              <div className="flex justify-between mb-2">
-                <label className="text-lg font-light text-stone-600">
-                  Tags
-                </label>
+            <div className="flex flex-wrap gap-4">
+              {["Fresh", "Trending", "Best Rates"].map((tag, index) => {
+                const _id = `tag-${index}`;
+                return (
+                  <label
+                    key={_id}
+                    htmlFor={_id}
+                    className={clsx({
+                      "!transition-all": true,
+                      "cursor-pointer bg-zinc-100 rounded-md px-4 py-3 leading-none":
+                        true,
+                      "!bg-primary text-white": selectedTags.includes(_id),
+                    })}
+                  >
+                    {tag}
+                    <input
+                      type="checkbox"
+                      onChange={(evt) => {
+                        if (evt.target.checked) {
+                          return setSelectedTags((tags) => [...tags, _id]);
+                        }
 
-                <Button
-                  type="button"
-                  variant="text"
-                  size="small"
-                  color="primary"
-                >
-                  New
-                </Button>
-              </div>
+                        setSelectedTags((tags) => {
+                          return tags.filter((t) => t !== _id);
+                        });
+                      }}
+                      name={_id}
+                      id={_id}
+                      className="hidden"
+                    />
+                  </label>
+                );
+              })}
 
-              <div className="flex flex-wrap gap-4">
-                {["Fresh", "Trending", "Best Rates"].map((tag, index) => {
-                  const _id = `tag-${index}`;
-                  return (
-                    <label
-                      key={_id}
-                      htmlFor={_id}
-                      className={clsx({
-                        "!transition-all": true,
-                        "cursor-pointer bg-zinc-100 rounded-md px-4 py-3 leading-none":
-                          true,
-                        "!bg-primary text-white": selectedTags.includes(_id),
-                      })}
-                    >
-                      {tag}
-                      <input
-                        type="checkbox"
-                        onChange={(evt) => {
-                          if (evt.target.checked) {
-                            return setSelectedTags((tags) => [...tags, _id]);
-                          }
-
-                          setSelectedTags((tags) => {
-                            return tags.filter((t) => t !== _id);
-                          });
-                        }}
-                        name={_id}
-                        id={_id}
-                        className="hidden"
-                      />
-                    </label>
-                  );
+              <Button
+                variant="text"
+                color="inherit"
+                className={clsx({
+                  "transition-all": true,
+                  "cursor-pointer leading-none !min-w-0 !p-0": true,
                 })}
-
-                <Button
-                  variant="text"
-                  color="inherit"
-                  className={clsx({
-                    "transition-all": true,
-                    "cursor-pointer leading-none !min-w-0 !p-0": true,
-                  })}
-                >
-                  <AddCircleOutlined className="!size-8" />
-                </Button>
-              </div>
+              >
+                <AddCircleOutlined className="!size-8" />
+              </Button>
             </div>
           </div>
 
