@@ -152,7 +152,7 @@ export default function GiftcardPage() {
             Add New Gift Card
           </h2>
 
-          <div className="flex flex-col gap-y-6 mb-8">
+          <div className="flex flex-col gap-y-6 mb-12">
             <Button
               size="large"
               component="label"
