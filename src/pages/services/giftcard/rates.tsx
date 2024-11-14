@@ -18,6 +18,7 @@ import {
 import PageTitle from "@/components/page-title";
 import GiftcardRateItemActionButton from "@/components/giftcard/more-rate-action-button";
 import RateListBrandSelectInput from "@/components/giftcard/rate-list-brand-select-input";
+import RateListBrandSelectBox from "@/components/giftcard/rate-list-brand-select-box";
 import {
   AddCircleOutlined,
   AddOutlined,
@@ -36,7 +37,8 @@ export default function GiftcardRatesPage() {
 
       <section className="px-4 pt-6 pb-20">
         <div className="flex flex-col gap-y-2 mb-6">
-          <RateListBrandSelectInput />
+          {/* <RateListBrandSelectInput /> */}
+          <RateListBrandSelectBox />
 
           <div className="flex gap-x-2">
             <Button
