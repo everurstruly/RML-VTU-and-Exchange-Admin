@@ -11,7 +11,8 @@ export type Path =
   | `/orders/crypto/:id`
   | `/orders/giftcards/:id`
   | `/services/giftcard`
-  | `/services/giftcard/rates`;
+  | `/services/giftcard/rates`
+  | `/services/giftcard/rates/new`;
 
 export type Params = {
   "/orders/crypto/:id": { id: string };
