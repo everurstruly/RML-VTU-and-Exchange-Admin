@@ -7,6 +7,7 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import {
   DeleteOutline,
   DoDisturbOutlined,
+  EditOutlined,
   LabelOutlined,
   VisibilityOffOutlined,
 } from "@mui/icons-material";
@@ -14,13 +15,23 @@ import clsx from "clsx";
 
 const options = [
   {
-    label: "Deactivate",
-    color: "action",
+    label: "Edit",
+    color: "primary",
+    Icon: (props: any) => <EditOutlined {...props} />,
+  },
+  {
+    label: "Deactive",
+    color: "default",
     Icon: (props: any) => <DoDisturbOutlined {...props} />,
   },
   {
+    label: "Delete",
+    color: "error",
+    Icon: (props: any) => <DeleteOutline {...props} />,
+  },
+  {
     label: "View Pending Orders",
-    color: "primary",
+    color: "action",
     Icon: (props: any) => <LabelOutlined {...props} />,
   },
 ];
