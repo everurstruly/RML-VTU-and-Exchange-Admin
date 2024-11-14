@@ -51,7 +51,7 @@ export default function RateListBrandSelectBox() {
         <Button variant="text" size="small" color="primary" disabled>
           Compare
         </Button>
-        <Button variant="text" size="small" color="success">
+        <Button variant="text" size="small" color="success" href="/services/giftcard">
           Change
         </Button>
       </div>
