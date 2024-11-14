@@ -26,6 +26,7 @@ import {
   AddPhotoAlternateOutlined,
   ArrowRightAltOutlined,
   FilterAltOutlined,
+  NoteAddOutlined,
   FilterListOutlined,
   Image,
   MoreVertOutlined,
@@ -146,14 +147,13 @@ export default function GiftcardPage() {
         onOpen={() => setEditFormOpened(true)}
       >
         <Box sx={{ width: "100%", padding: "1rem", backgroundColor: "#fff" }}>
-          <h2 className="text-lg font-semibold mb-6">
-            Add New Gift Card Service
+          <h2 className="text-xl font-medium mb-6 flex items-center truncate gap-x-2">
+            <NoteAddOutlined />
+            Add New Gift Card
           </h2>
 
           <div className="flex flex-col gap-y-6 mb-8">
-            
-
-          <Button
+            <Button
               size="large"
               component="label"
               fullWidth
