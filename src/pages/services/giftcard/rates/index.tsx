@@ -88,19 +88,18 @@ export default function GiftcardRatesPage() {
             return (
               <li key={`${item}#${index}`}>
                 <Card variant="elevation" className="border">
-                  <CardContent
-                    sx={{ padding: ".875rem", position: "relative" }}
-                  >
+                  <div className="p-4 relative">
                     <div className="flex justify-end">
                       <GiftcardRateItemActionButton />
                     </div>
 
-                    <div className="mb-6">
+                    <div className="-mt-1 mb-6">
                       <Typography
                         gutterBottom
                         variant="body2"
                         component="h6"
                         align="center"
+                        className="text-stone-500"
                       >
                         You will Pay
                       </Typography>
@@ -115,19 +114,13 @@ export default function GiftcardRatesPage() {
                     </div>
 
                     <div className="p-3 space-y-2 rounded-md border border-dashed">
-                      <Typography gutterBottom variant="body2">
-                        When You Get:
-                      </Typography>
-
                       <ul className="flex flex-col gap-y-1">
                         <li className="flex items-center  justify-between truncate text-sm">
                           <span className="text-zinc-500 text-xs">Brand: </span>
                           <span className="">Amazon (USA)</span>
                         </li>
                         <li className="flex items-center justify-between truncate text-sm">
-                          <span className="text-zinc-500 text-xs">
-                            Amount:{" "}
-                          </span>
+                          <span className="text-zinc-500 text-xs">Value: </span>
                           <span className="">
                             Min (
                             <span className="text-primary font-medium">
@@ -142,16 +135,16 @@ export default function GiftcardRatesPage() {
                         </li>
                       </ul>
                     </div>
-                  </CardContent>
+                  </div>
 
-                  <CardActions className="flex justify-end !pt-0">
+                  {/* <CardActions className="flex justify-end !pt-0">
                     <Button size="medium" fullWidth color="error">
                       Delete
                     </Button>
                     <Button size="medium" fullWidth>
                       Edit
                     </Button>
-                  </CardActions>
+                  </CardActions> */}
                 </Card>
               </li>
             );
