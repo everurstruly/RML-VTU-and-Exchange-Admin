@@ -95,7 +95,6 @@ export default function GiftcardRateItemActionButton() {
                 {label}
               </span>
             </MenuItem>
-            {label !== "Delete" && <Divider className="!m-0" />}
           </div>
         ))}
       </Menu>
