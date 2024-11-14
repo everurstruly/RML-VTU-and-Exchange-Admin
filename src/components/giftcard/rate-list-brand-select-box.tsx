@@ -49,19 +49,19 @@ export default function RateListBrandSelectBox() {
     <div className="border rounded-md px-4 py-2.5 flex items-center justify-between">
       <div className="flex gap-x-2 items-center">
         <ManageSearchOutlined className="!size-7 !mb-1" />
-        <h4 className="uppercase text-lg font-medium leading-none">Amazon</h4>
+        <h4 className="uppercase text-medium font-medium leading-none">Amazon</h4>
       </div>
       <div className="flex gap-x-6 items-center">
-        <Button variant="text" size="small" color="primary" disabled>
+        {/* <Button variant="text" size="small" color="primary" disabled>
           Compare
-        </Button>
+        </Button> */}
         <Button
           variant="text"
           size="small"
           color="primary"
           href="/services/giftcard"
         >
-          Change
+          Change Card
         </Button>
       </div>
     </div>
