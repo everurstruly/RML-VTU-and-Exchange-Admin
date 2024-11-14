@@ -31,9 +31,11 @@ import {
   MoreVertOutlined,
   SortOutlined,
 } from "@mui/icons-material";
+import clsx from "clsx";
 
 export default function GiftcardPage() {
   const [editFormOpened, setEditFormOpened] = React.useState(false);
+  const [selectedTags, setSelectedTags] = React.useState<string[]>([]);
 
   const toggleEditFormVisibility = (
     event: React.KeyboardEvent | React.MouseEvent
@@ -156,6 +158,69 @@ export default function GiftcardPage() {
               fullWidth
               className="mt-4"
             />
+
+            <div className="border p-3 border-gray-300">
+              <div className="flex justify-between mb-2">
+                <label className="text-lg font-light text-stone-600">
+                  Tags
+                </label>
+
+                <Button
+                  type="button"
+                  variant="text"
+                  size="small"
+                  color="primary"
+                >
+                  New
+                </Button>
+              </div>
+
+              <div className="flex flex-wrap gap-4">
+                {["Fresh", "Trending", "Best Rates"].map((tag, index) => {
+                  const _id = `tag-${index}`;
+                  return (
+                    <label
+                      key={_id}
+                      htmlFor={_id}
+                      className={clsx({
+                        "!transition-all": true,
+                        "cursor-pointer bg-zinc-100 rounded-md px-4 py-3 leading-none":
+                          true,
+                        "!bg-primary text-white": selectedTags.includes(_id),
+                      })}
+                    >
+                      {tag}
+                      <input
+                        type="checkbox"
+                        onChange={(evt) => {
+                          if (evt.target.checked) {
+                            return setSelectedTags((tags) => [...tags, _id]);
+                          }
+
+                          setSelectedTags((tags) => {
+                            return tags.filter((t) => t !== _id);
+                          });
+                        }}
+                        name={_id}
+                        id={_id}
+                        className="hidden"
+                      />
+                    </label>
+                  );
+                })}
+
+                <Button
+                  variant="text"
+                  color="inherit"
+                  className={clsx({
+                    "transition-all": true,
+                    "cursor-pointer leading-none !min-w-0 !p-0": true,
+                  })}
+                >
+                  <AddCircleOutlined className="!size-8" />
+                </Button>
+              </div>
+            </div>
 
             <Button
               size="large"
