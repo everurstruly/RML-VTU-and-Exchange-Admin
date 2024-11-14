@@ -12,11 +12,11 @@ import Chip from "@mui/material/Chip";
 import clsx from "clsx";
 
 const statuses = [
-  { title: "Pending", color: "warning" },
-  { title: "Cancelled", color: "info" },
-  { title: "Processing", color: "primary" },
-  { title: "Accepted", color: "success" },
-  { title: "Rejected", color: "danger" },
+  { title: "Pending", color: "error" },
+  { title: "Cancelled", color: "action" },
+  { title: "Processing", color: "warning" },
+  { title: "Completed", color: "success" },
+  { title: "Rejected", color: "primary" },
 ];
 
 const statuesToColor = statuses.reduce((mappedForm, { title, color }) => {
