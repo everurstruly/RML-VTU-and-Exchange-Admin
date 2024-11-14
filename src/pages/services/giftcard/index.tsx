@@ -150,7 +150,24 @@ export default function GiftcardPage() {
             Add New Gift Card Service
           </h2>
 
-          <div className="flex flex-col gap-y-4 mb-6">
+          <div className="flex flex-col gap-y-6 mb-8">
+            
+
+          <Button
+              size="large"
+              component="label"
+              fullWidth
+              role={undefined}
+              variant="outlined"
+              tabIndex={-1}
+              classes={{
+                root: "min-h-[8rem] !border-default !border-gray-300 flex-col gap-y-2",
+              }}
+            >
+              <AddPhotoAlternateOutlined className="!size-6" />
+              <div>Upload Cover Image</div>
+              <input type="file" className="hidden" aria-label="hidden" />
+            </Button>
             <TextField
               label="Card Title"
               // variant="standard"
